@@ -2,7 +2,8 @@
 name: Auto-deployment of ingest_metadata Documentation
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build-docs:
