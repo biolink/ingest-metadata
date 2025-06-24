@@ -11,6 +11,7 @@ generator_args:
     # metadata_profile: rdfs
   markdown:
     mergeimports: true
+    template_directory: src/doc-templates
   graphql:
     mergeimports: true
   java:
