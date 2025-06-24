@@ -44,8 +44,7 @@ linkml:Jsonpath xsd:string
 linkml:Sparqlpath xsd:string
 
 <IngestMetadata> CLOSED {
-    (  $<IngestMetadata_tes> (  <title> @linkml:String ;
-          <created_by> @linkml:String * ;
+    (  $<IngestMetadata_tes> (  <created_by> @linkml:String * ;
           <creation_date> @linkml:Date ;
           <ingest_code_url> @linkml:Uriorcurie ;
           <ingest_guide_url> @linkml:Uriorcurie ? ;
@@ -68,7 +67,7 @@ linkml:Sparqlpath xsd:string
           <node_normalizer> @linkml:String ? ;
           <node_normalizer_version> @linkml:String ?
        ) ;
-       rdf:type [ <IngestMetadata> ] ?
+       rdf:type [ <IngestMetadata> ]
     )
 }
 

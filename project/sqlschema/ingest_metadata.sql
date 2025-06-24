@@ -1,5 +1,4 @@
 -- # Class: "IngestMetadata" Description: "Metadata about a specific data ingest process and its outputs"
---     * Slot: id Description: 
 --     * Slot: title Description: Human-readable name for this metadata object
 --     * Slot: creation_date Description: Date the ingest metadata was created
 --     * Slot: ingest_code_url Description: URL of the code used for the ingest (tagged release or branch)
@@ -20,20 +19,19 @@
 --     * Slot: node_normalizer Description: Name of the node normalizer used
 --     * Slot: node_normalizer_version Description: Version of the node normalizer used
 -- # Class: "IngestMetadata_created_by" Description: ""
---     * Slot: IngestMetadata_id Description: Autocreated FK slot
+--     * Slot: IngestMetadata_title Description: Autocreated FK slot
 --     * Slot: created_by Description: One or more creators of this ingest metadata file
 -- # Class: "IngestMetadata_source_access_urls" Description: ""
---     * Slot: IngestMetadata_id Description: Autocreated FK slot
+--     * Slot: IngestMetadata_title Description: Autocreated FK slot
 --     * Slot: source_access_urls Description: URLs from which the source data was accessed
 -- # Class: "IngestMetadata_source_data_formats" Description: ""
---     * Slot: IngestMetadata_id Description: Autocreated FK slot
+--     * Slot: IngestMetadata_title Description: Autocreated FK slot
 --     * Slot: source_data_formats Description: Formats of source data files or payloads
 -- # Class: "IngestMetadata_source_data_files" Description: ""
---     * Slot: IngestMetadata_id Description: Autocreated FK slot
+--     * Slot: IngestMetadata_title Description: Autocreated FK slot
 --     * Slot: source_data_files Description: List of source file names ingested
 
 CREATE TABLE "IngestMetadata" (
-	id INTEGER NOT NULL, 
 	title TEXT NOT NULL, 
 	creation_date DATE NOT NULL, 
 	ingest_code_url TEXT NOT NULL, 
@@ -53,29 +51,29 @@ CREATE TABLE "IngestMetadata" (
 	target_data_model_version TEXT, 
 	node_normalizer TEXT, 
 	node_normalizer_version TEXT, 
-	PRIMARY KEY (id)
+	PRIMARY KEY (title)
 );
 CREATE TABLE "IngestMetadata_created_by" (
-	"IngestMetadata_id" INTEGER, 
+	"IngestMetadata_title" TEXT, 
 	created_by TEXT, 
-	PRIMARY KEY ("IngestMetadata_id", created_by), 
-	FOREIGN KEY("IngestMetadata_id") REFERENCES "IngestMetadata" (id)
+	PRIMARY KEY ("IngestMetadata_title", created_by), 
+	FOREIGN KEY("IngestMetadata_title") REFERENCES "IngestMetadata" (title)
 );
 CREATE TABLE "IngestMetadata_source_access_urls" (
-	"IngestMetadata_id" INTEGER, 
+	"IngestMetadata_title" TEXT, 
 	source_access_urls TEXT, 
-	PRIMARY KEY ("IngestMetadata_id", source_access_urls), 
-	FOREIGN KEY("IngestMetadata_id") REFERENCES "IngestMetadata" (id)
+	PRIMARY KEY ("IngestMetadata_title", source_access_urls), 
+	FOREIGN KEY("IngestMetadata_title") REFERENCES "IngestMetadata" (title)
 );
 CREATE TABLE "IngestMetadata_source_data_formats" (
-	"IngestMetadata_id" INTEGER, 
+	"IngestMetadata_title" TEXT, 
 	source_data_formats TEXT, 
-	PRIMARY KEY ("IngestMetadata_id", source_data_formats), 
-	FOREIGN KEY("IngestMetadata_id") REFERENCES "IngestMetadata" (id)
+	PRIMARY KEY ("IngestMetadata_title", source_data_formats), 
+	FOREIGN KEY("IngestMetadata_title") REFERENCES "IngestMetadata" (title)
 );
 CREATE TABLE "IngestMetadata_source_data_files" (
-	"IngestMetadata_id" INTEGER, 
+	"IngestMetadata_title" TEXT, 
 	source_data_files TEXT, 
-	PRIMARY KEY ("IngestMetadata_id", source_data_files), 
-	FOREIGN KEY("IngestMetadata_id") REFERENCES "IngestMetadata" (id)
+	PRIMARY KEY ("IngestMetadata_title", source_data_files), 
+	FOREIGN KEY("IngestMetadata_title") REFERENCES "IngestMetadata" (title)
 );
