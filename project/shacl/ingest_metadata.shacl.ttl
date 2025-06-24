@@ -1,90 +1,157 @@
-@prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
-@prefix ingest_metadata: <https://w3id.org/biolink/ingest-metadata/> .
+@prefix biolink: <https://w3id.org/biolink/vocab/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix schema1: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-schema1:Thing a sh:NodeShape ;
+biolink:IngestMetadata a sh:NodeShape ;
     sh:closed true ;
-    sh:description "A generic grouping for any identifiable entity" ;
-    sh:ignoredProperties ( schema1:birthDate ingest_metadata:age_in_years rdf:type ingest_metadata:vital_status schema1:email ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path schema1:description ] ;
-    sh:targetClass schema1:Thing .
-
-ingest_metadata:IngestMetadataCollection a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A holder for IngestMetadata objects" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ingest_metadata:IngestMetadata ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path ingest_metadata:entries ] ;
-    sh:targetClass ingest_metadata:IngestMetadataCollection .
-
-ingest_metadata:IngestMetadata a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "Represents a IngestMetadata" ;
+    sh:description "Metadata about a specific data ingest process and its outputs" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:date ;
-            sh:description "Date on which a person is born" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path schema1:birthDate ],
-        [ sh:datatype xsd:string ;
-            sh:description "The main email address of a person" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path schema1:email ;
-            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Number of years since birth" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ingest_metadata:age_in_years ],
-        [ sh:description "living or dead status" ;
-            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path ingest_metadata:vital_status ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
+            sh:description "Level of processing applied to the output (e.g. Source-KG, Biolink KG, Normalized KG)" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path biolink:target_type ;
+            sh:pattern "^(Source-KG|Biolink KG|Normalized KG)$" ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date the ingest metadata was created" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path biolink:creation_date ],
+        [ sh:datatype xsd:string ;
+            sh:description "Format of the output graph (KGX)" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 18 ;
+            sh:path biolink:target_data_format ],
+        [ sh:datatype xsd:string ;
+            sh:description "Human-readable name for this metadata object" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path biolink:title ],
+        [ sh:datatype xsd:string ;
+            sh:description "Version of the data model used" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 20 ;
+            sh:path biolink:target_data_model_version ],
+        [ sh:datatype xsd:string ;
+            sh:description "Human-readable name of the output dataset/graph" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path biolink:target_title ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URL of the code used for the ingest (tagged release or branch)" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path biolink:ingest_code_url ],
+        [ sh:datatype xsd:string ;
+            sh:description "Version of the ingested source data" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path biolink:source_data_version ],
+        [ sh:datatype xsd:string ;
+            sh:description "One or more creators of this ingest metadata file" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path biolink:created_by ],
+        [ sh:datatype xsd:string ;
+            sh:description "List of source file names ingested" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path biolink:source_data_files ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date the source data was downloaded" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path biolink:source_download_date ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URLs from which the source data was accessed" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path biolink:source_access_urls ],
+        [ sh:datatype xsd:string ;
+            sh:description "Version of the output dataset/graph" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path biolink:target_data_version ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URL of the RIG (Reference Ingest Guide)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path schema1:identifier ] ;
-    sh:targetClass ingest_metadata:IngestMetadata .
+            sh:path biolink:ingest_guide_url ],
+        [ sh:datatype xsd:string ;
+            sh:description "Formats of source data files or payloads" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path biolink:source_data_formats ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Infores identifier of the ingested source" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path biolink:source_infores_id ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date the output was created" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path biolink:target_creation_date ],
+        [ sh:datatype xsd:string ;
+            sh:description "Name of the node normalizer used" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 21 ;
+            sh:path biolink:node_normalizer ],
+        [ sh:datatype xsd:string ;
+            sh:description "License or terms of use for the source" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path biolink:source_license ],
+        [ sh:datatype xsd:string ;
+            sh:description "License or terms of use for the output" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 17 ;
+            sh:path biolink:target_license ],
+        [ sh:datatype xsd:string ;
+            sh:description "Data model used (Biolink Model)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 19 ;
+            sh:path biolink:target_data_model ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date the source data was published" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path biolink:source_publication_date ],
+        [ sh:datatype xsd:string ;
+            sh:description "Version of the node normalizer used" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 22 ;
+            sh:path biolink:node_normalizer_version ] ;
+    sh:targetClass biolink:IngestMetadata .
 

@@ -4,7 +4,7 @@ import glob
 import unittest
 
 from linkml_runtime.loaders import yaml_loader
-from ingest_metadata.datamodel.ingest_metadata import IngestMetadataCollection
+from src.ingest_metadata.datamodel.ingest_metadata import IngestMetadata
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 DATA_DIR = os.path.join(ROOT, "src", "data", "examples")
@@ -16,7 +16,7 @@ class TestData(unittest.TestCase):
     """Test data and datamodel."""
 
     def test_data(self):
-        """Data test."""
+        """Date test."""
         for path in EXAMPLE_FILES:
-            obj = yaml_loader.load(path, target_class=IngestMetadataCollection)
+            obj = yaml_loader.load(path, target_class=IngestMetadata)
             assert obj

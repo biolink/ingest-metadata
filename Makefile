@@ -24,10 +24,6 @@ PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
 DOCDIR = docs
 DOCTEMPLATES = $(SRC)/docs/templates
 EXAMPLEDIR = examples
-SHEET_MODULE = $(LINKML_SCHEMA_GOOGLE_SHEET_MODULE)
-SHEET_ID = $(LINKML_SCHEMA_GOOGLE_SHEET_ID)
-SHEET_TABS = $(LINKML_SCHEMA_GOOGLE_SHEET_TABS)
-SHEET_MODULE_PATH = $(SOURCE_SCHEMA_DIR)/$(SHEET_MODULE).yaml
 
 # Use += to append variables from the variables file
 CONFIG_YAML =
@@ -114,9 +110,6 @@ all: site
 site: gen-project gendoc
 %.yaml: gen-project
 deploy: all mkd-gh-deploy
-
-compile-sheets:
-	$(RUN) sheets2linkml --gsheet-id $(SHEET_ID) $(SHEET_TABS) > $(SHEET_MODULE_PATH).tmp && mv $(SHEET_MODULE_PATH).tmp $(SHEET_MODULE_PATH)
 
 # In future this will be done by conversion
 gen-examples:

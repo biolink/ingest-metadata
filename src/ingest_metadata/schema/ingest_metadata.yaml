@@ -1,96 +1,158 @@
----
 id: https://w3id.org/biolink/ingest-metadata
-name: ingest-metadata
-title: ingest-metadata
-description: |-
-  Schema hosting relevant metadata for a data transformation conformant to the Biolink Model
-license: MIT
-see_also:
-  - https://biolink.github.io/ingest-metadata
-
+name: ingest_metadata
+title: Biolink Ingest Metadata Schema
+description: Metadata about a data ingest process and its products.
+license: https://creativecommons.org/publicdomain/zero/1.0/
 prefixes:
-  ingest_metadata: https://w3id.org/biolink/ingest-metadata/
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/
-  schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-  example: https://example.org/
-default_prefix: ingest_metadata
+  biolink: https://w3id.org/biolink/vocab/
+  translator: https://w3id.org/translator/
+default_prefix: biolink
 default_range: string
 
 imports:
   - linkml:types
 
 classes:
-
-  NamedThing:
-    description: >-
-      A generic grouping for any identifiable entity
-    slots:
-      - id
-      - name
-      - description
-    class_uri: schema:Thing
-
   IngestMetadata:
-    is_a: NamedThing
-    description: >-
-      Represents a IngestMetadata
+    description: Metadata about a specific data ingest process and its outputs
     slots:
-      - primary_email
-      - birth_date
-      - age_in_years
-      - vital_status
-    slot_usage:
-      primary_email:
-        pattern: "^\\S+@[\\S+\\.]+\\S+"
-
-  IngestMetadataCollection:
-    tree_root: true
-    description: >-
-      A holder for IngestMetadata objects
-    attributes:
-      entries:
-        range: IngestMetadata
-        multivalued: true
-        inlined: true
+      - title
+      - created_by
+      - creation_date
+      - ingest_code_url
+      - ingest_guide_url
+      - source_infores_id
+      - source_license
+      - source_data_version
+      - source_publication_date
+      - source_download_date
+      - source_access_urls
+      - source_data_formats
+      - source_data_files
+      - target_title
+      - target_type
+      - target_data_version
+      - target_creation_date
+      - target_license
+      - target_data_format
+      - target_data_model
+      - target_data_model_version
+      - node_normalizer
+      - node_normalizer_version
 
 slots:
-  id:
-    identifier: true
-    slot_uri: schema:identifier
-    range: uriorcurie
-    description: A unique identifier for a thing
-  name:
-    slot_uri: schema:name
-    description: A human-readable name for a thing
-  description:
-    slot_uri: schema:description
-    description: A human-readable description for a thing
-  primary_email:
-    slot_uri: schema:email
-    description: The main email address of a person
-  birth_date:
-    slot_uri: schema:birthDate
+  title:
+    description: Human-readable name for this metadata object
+    required: true
+
+  created_by:
+    description: One or more creators of this ingest metadata file
+    multivalued: true
+
+  creation_date:
+    description: Date the ingest metadata was created
     range: date
-    description: Date on which a person is born
-  age_in_years:
-    range: integer
-    description: Number of years since birth
-  vital_status:
-    range: PersonStatus
-    description: living or dead status
+    required: true
+
+  ingest_code_url:
+    description: URL of the code used for the ingest (tagged release or branch)
+    range: uriorcurie
+    required: true
+
+  ingest_guide_url:
+    description: URL of the RIG (Reference Ingest Guide)
+    range: uriorcurie
+    required: false
+
+  source_infores_id:
+    description: Infores identifier of the ingested source
+    range: uriorcurie
+    required: true
+
+  source_license:
+    description: License or terms of use for the source
+    required: false
+
+  source_data_version:
+    description: Version of the ingested source data
+    required: true
+
+  source_publication_date:
+    description: Date the source data was published
+    range: date
+    required: false
+
+  source_download_date:
+    description: Date the source data was downloaded
+    range: date
+    required: false
+
+  source_access_urls:
+    description: URLs from which the source data was accessed
+    range: uriorcurie
+    multivalued: true
+    required: false
+
+  source_data_formats:
+    description: Formats of source data files or payloads
+    multivalued: true
+    required: false
+
+  source_data_files:
+    description: List of source file names ingested
+    multivalued: true
+    required: false
+
+  target_title:
+    description: Human-readable name of the output dataset/graph
+    required: true
+
+  target_type:
+    description: Level of processing applied to the output (e.g. Source-KG, Biolink KG, Normalized KG)
+    required: true
+    pattern: "^(Source-KG|Biolink KG|Normalized KG)$"
+
+  target_data_version:
+    description: Version of the output dataset/graph
+    required: true
+
+  target_creation_date:
+    description: Date the output was created
+    range: date
+    required: true
+
+  target_license:
+    description: License or terms of use for the output
+    required: true
+
+  target_data_format:
+    description: Format of the output graph (KGX)
+    required: true
+
+  target_data_model:
+    description: Data model used (Biolink Model)
+    required: false
+
+  target_data_model_version:
+    description: Version of the data model used
+    required: false
+
+  node_normalizer:
+    description: Name of the node normalizer used
+    required: false
+
+  node_normalizer_version:
+    description: Version of the node normalizer used
+    required: false
 
 enums:
-  PersonStatus:
+  TargetGraphType:
+    description: Level of processing or modeling applied to the target knowledge graph
     permissible_values:
-      ALIVE:
-        description: the person is living
-        meaning: PATO:0001421
-      DEAD:
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        description: the vital status is not known
-        todos:
-          - map this to an ontology
+      SourceKG:
+        description: A raw source KG parsed from a source without Biolink modeling
+      BiolinkKG:
+        description: A KG transformed to use Biolink classes and predicates
+      NormalizedKG:
+        description: A KG that has undergone Biolink modeling and node normalization

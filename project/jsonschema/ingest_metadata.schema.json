@@ -2,205 +2,186 @@
     "$defs": {
         "IngestMetadata": {
             "additionalProperties": false,
-            "description": "Represents a IngestMetadata",
+            "description": "Metadata about a specific data ingest process and its outputs",
             "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "birth_date": {
-                    "description": "Date on which a person is born",
-                    "format": "date",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "A human-readable description for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "A human-readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
-                }
-            },
-            "required": [
-                "id"
-            ],
-            "title": "IngestMetadata",
-            "type": "object"
-        },
-        "IngestMetadataCollection": {
-            "additionalProperties": false,
-            "description": "A holder for IngestMetadata objects",
-            "properties": {
-                "entries": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/IngestMetadata__identifier_optional"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
+                "created_by": {
+                    "description": "One or more creators of this ingest metadata file",
+                    "items": {
+                        "type": "string"
                     },
                     "type": [
-                        "object",
-                        "null"
-                    ]
-                }
-            },
-            "title": "IngestMetadataCollection",
-            "type": "object"
-        },
-        "IngestMetadata__identifier_optional": {
-            "additionalProperties": false,
-            "description": "Represents a IngestMetadata",
-            "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": [
-                        "integer",
+                        "array",
                         "null"
                     ]
                 },
-                "birth_date": {
-                    "description": "Date on which a person is born",
+                "creation_date": {
+                    "description": "Date the ingest metadata was created",
+                    "format": "date",
+                    "type": "string"
+                },
+                "ingest_code_url": {
+                    "description": "URL of the code used for the ingest (tagged release or branch)",
+                    "type": "string"
+                },
+                "ingest_guide_url": {
+                    "description": "URL of the RIG (Reference Ingest Guide)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "node_normalizer": {
+                    "description": "Name of the node normalizer used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "node_normalizer_version": {
+                    "description": "Version of the node normalizer used",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "source_access_urls": {
+                    "description": "URLs from which the source data was accessed",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "source_data_files": {
+                    "description": "List of source file names ingested",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "source_data_formats": {
+                    "description": "Formats of source data files or payloads",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "source_data_version": {
+                    "description": "Version of the ingested source data",
+                    "type": "string"
+                },
+                "source_download_date": {
+                    "description": "Date the source data was downloaded",
                     "format": "date",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "description": {
-                    "description": "A human-readable description for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "A unique identifier for a thing",
+                "source_infores_id": {
+                    "description": "Infores identifier of the ingested source",
                     "type": "string"
                 },
-                "name": {
-                    "description": "A human-readable name for a thing",
+                "source_license": {
+                    "description": "License or terms of use for the source",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
+                "source_publication_date": {
+                    "description": "Date the source data was published",
+                    "format": "date",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
-                }
-            },
-            "required": [],
-            "title": "IngestMetadata",
-            "type": "object"
-        },
-        "NamedThing": {
-            "additionalProperties": false,
-            "description": "A generic grouping for any identifiable entity",
-            "properties": {
-                "description": {
-                    "description": "A human-readable description for a thing",
+                "target_creation_date": {
+                    "description": "Date the output was created",
+                    "format": "date",
+                    "type": "string"
+                },
+                "target_data_format": {
+                    "description": "Format of the output graph (KGX)",
+                    "type": "string"
+                },
+                "target_data_model": {
+                    "description": "Data model used (Biolink Model)",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "id": {
-                    "description": "A unique identifier for a thing",
+                "target_data_model_version": {
+                    "description": "Version of the data model used",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "name": {
-                    "description": "A human-readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                "target_data_version": {
+                    "description": "Version of the output dataset/graph",
+                    "type": "string"
+                },
+                "target_license": {
+                    "description": "License or terms of use for the output",
+                    "type": "string"
+                },
+                "target_title": {
+                    "description": "Human-readable name of the output dataset/graph",
+                    "type": "string"
+                },
+                "target_type": {
+                    "description": "Level of processing applied to the output (e.g. Source-KG, Biolink KG, Normalized KG)",
+                    "pattern": "^(Source-KG|Biolink KG|Normalized KG)$",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Human-readable name for this metadata object",
+                    "type": "string"
                 }
             },
             "required": [
-                "id"
+                "title",
+                "creation_date",
+                "ingest_code_url",
+                "source_infores_id",
+                "source_data_version",
+                "target_title",
+                "target_type",
+                "target_data_version",
+                "target_creation_date",
+                "target_license",
+                "target_data_format"
             ],
-            "title": "NamedThing",
+            "title": "IngestMetadata",
             "type": "object"
         },
-        "PersonStatus": {
-            "description": "",
+        "TargetGraphType": {
+            "description": "Level of processing or modeling applied to the target knowledge graph",
             "enum": [
-                "ALIVE",
-                "DEAD",
-                "UNKNOWN"
+                "SourceKG",
+                "BiolinkKG",
+                "NormalizedKG"
             ],
-            "title": "PersonStatus",
+            "title": "TargetGraphType",
             "type": "string"
         }
     },
     "$id": "https://w3id.org/biolink/ingest-metadata",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "description": "A holder for IngestMetadata objects",
     "metamodel_version": "1.7.0",
-    "properties": {
-        "entries": {
-            "additionalProperties": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/IngestMetadata__identifier_optional"
-                    },
-                    {
-                        "type": "null"
-                    }
-                ]
-            },
-            "type": [
-                "object",
-                "null"
-            ]
-        }
-    },
-    "title": "ingest-metadata",
+    "title": "ingest_metadata",
     "type": "object",
     "version": null
 }

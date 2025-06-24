@@ -1,11 +1,5 @@
 {
-   "PATO": "http://purl.obolibrary.org/obo/PATO_",
-   "biolink": "https://w3id.org/biolink/",
-   "example": "https://example.org/",
-   "ingest_metadata": "https://w3id.org/biolink/ingest-metadata/",
+   "biolink": "https://w3id.org/biolink/vocab/",
    "linkml": "https://w3id.org/linkml/",
-   "schema": "http://schema.org/",
-   "NamedThing": {
-      "@id": "schema:Thing"
-   }
+   "translator": "https://w3id.org/translator/"
 }
