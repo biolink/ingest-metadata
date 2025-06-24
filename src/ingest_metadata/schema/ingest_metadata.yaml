@@ -45,6 +45,7 @@ slots:
   title:
     description: Human-readable name for this metadata object
     required: true
+    identifier: true
 
   created_by:
     description: One or more creators of this ingest metadata file

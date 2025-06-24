@@ -7,14 +7,10 @@
 ###### schema definition variables, used by makefile
 
 # Note: makefile variables should not be quoted, as makefile handles quoting differently than bash
-LINKML_SCHEMA_NAME="ingest_metadata"
-LINKML_SCHEMA_AUTHOR="Matt Brush <matt@tislab.org>"
-LINKML_SCHEMA_DESCRIPTION="Schema hosting relevant metadata for a data transformation conformant to the Biolink Model"
-LINKML_SCHEMA_SOURCE_PATH="src/ingest_metadata/schema/ingest_metadata.yaml"
-LINKML_SCHEMA_GOOGLE_SHEET_MODULE="personinfo_enums"
-LINKML_SCHEMA_GOOGLE_SHEET_ID="1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ"
-LINKML_SCHEMA_GOOGLE_SHEET_TABS="personinfo enums"
-LINKML_USE_SCHEMASHEETS=No
+LINKML_SCHEMA_NAME=ingest_metadata
+LINKML_SCHEMA_AUTHOR=Matt Brush <matt@tislab.org>
+LINKML_SCHEMA_DESCRIPTION=Schema hosting relevant metadata for a data transformation conformant to the Biolink Model
+LINKML_SCHEMA_SOURCE_PATH=src/ingest_metadata/schema/ingest_metadata.yaml
 
 ###### linkml generator variables, used by makefile
 

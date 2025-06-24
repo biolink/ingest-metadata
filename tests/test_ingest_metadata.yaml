@@ -1,0 +1,13 @@
+title: "Test Ingest Metadata"
+created_by: 
+  - "Test Creator"
+creation_date: "2023-01-01"
+ingest_code_url: "https://github.com/example/test-ingest"
+source_infores_id: "infores:test-source"
+source_data_version: "1.0.0"
+target_title: "Test Output Dataset"
+target_type: "Source-KG"
+target_data_version: "1.0.0"
+target_creation_date: "2023-01-01"
+target_license: "CC0"
+target_data_format: "KGX"
