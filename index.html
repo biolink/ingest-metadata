@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ingest-metadata" class="md-skip">
+        <a href="#biolink-ingest-metadata-schema" class="md-skip">
           Skip to content
         </a>
       
@@ -438,10 +438,10 @@
   
 
 
-<h1 id="ingest-metadata">ingest-metadata</h1>
-<p>Schema hosting relevant metadata for a data transformation conformant to the Biolink Model</p>
+<h1 id="biolink-ingest-metadata-schema">Biolink Ingest Metadata Schema</h1>
+<p>Metadata about a data ingest process and its products.</p>
 <p>URI: https://w3id.org/biolink/ingest-metadata</p>
-<p>Name: ingest-metadata</p>
+<p>Name: ingest_metadata</p>
 <h2 id="classes">Classes</h2>
 <table>
 <thead>
@@ -452,16 +452,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="IngestMetadataCollection/">IngestMetadataCollection</a></td>
-<td>A holder for IngestMetadata objects</td>
-</tr>
-<tr>
-<td><a href="NamedThing/">NamedThing</a></td>
-<td>A generic grouping for any identifiable entity</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="IngestMetadata/">IngestMetadata</a></td>
-<td>Represents a IngestMetadata</td>
+<td><a href="IngestMetadata/">IngestMetadata</a></td>
+<td>Metadata about a specific data ingest process and its outputs</td>
 </tr>
 </tbody>
 </table>
@@ -475,36 +467,96 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="age_in_years/">age_in_years</a></td>
-<td>Number of years since birth</td>
+<td><a href="created_by/">created_by</a></td>
+<td>One or more creators of this ingest metadata file</td>
 </tr>
 <tr>
-<td><a href="birth_date/">birth_date</a></td>
-<td>Date on which a person is born</td>
+<td><a href="creation_date/">creation_date</a></td>
+<td>Date the ingest metadata was created</td>
 </tr>
 <tr>
-<td><a href="description/">description</a></td>
-<td>A human-readable description for a thing</td>
+<td><a href="ingest_code_url/">ingest_code_url</a></td>
+<td>URL of the code used for the ingest (tagged release or branch)</td>
 </tr>
 <tr>
-<td><a href="entries/">entries</a></td>
-<td></td>
+<td><a href="ingest_guide_url/">ingest_guide_url</a></td>
+<td>URL of the RIG (Reference Ingest Guide)</td>
 </tr>
 <tr>
-<td><a href="id/">id</a></td>
-<td>A unique identifier for a thing</td>
+<td><a href="node_normalizer/">node_normalizer</a></td>
+<td>Name of the node normalizer used</td>
 </tr>
 <tr>
-<td><a href="name/">name</a></td>
-<td>A human-readable name for a thing</td>
+<td><a href="node_normalizer_version/">node_normalizer_version</a></td>
+<td>Version of the node normalizer used</td>
 </tr>
 <tr>
-<td><a href="primary_email/">primary_email</a></td>
-<td>The main email address of a person</td>
+<td><a href="source_access_urls/">source_access_urls</a></td>
+<td>URLs from which the source data was accessed</td>
 </tr>
 <tr>
-<td><a href="vital_status/">vital_status</a></td>
-<td>living or dead status</td>
+<td><a href="source_data_files/">source_data_files</a></td>
+<td>List of source file names ingested</td>
+</tr>
+<tr>
+<td><a href="source_data_formats/">source_data_formats</a></td>
+<td>Formats of source data files or payloads</td>
+</tr>
+<tr>
+<td><a href="source_data_version/">source_data_version</a></td>
+<td>Version of the ingested source data</td>
+</tr>
+<tr>
+<td><a href="source_download_date/">source_download_date</a></td>
+<td>Date the source data was downloaded</td>
+</tr>
+<tr>
+<td><a href="source_infores_id/">source_infores_id</a></td>
+<td>Infores identifier of the ingested source</td>
+</tr>
+<tr>
+<td><a href="source_license/">source_license</a></td>
+<td>License or terms of use for the source</td>
+</tr>
+<tr>
+<td><a href="source_publication_date/">source_publication_date</a></td>
+<td>Date the source data was published</td>
+</tr>
+<tr>
+<td><a href="target_creation_date/">target_creation_date</a></td>
+<td>Date the output was created</td>
+</tr>
+<tr>
+<td><a href="target_data_format/">target_data_format</a></td>
+<td>Format of the output graph (KGX)</td>
+</tr>
+<tr>
+<td><a href="target_data_model/">target_data_model</a></td>
+<td>Data model used (Biolink Model)</td>
+</tr>
+<tr>
+<td><a href="target_data_model_version/">target_data_model_version</a></td>
+<td>Version of the data model used</td>
+</tr>
+<tr>
+<td><a href="target_data_version/">target_data_version</a></td>
+<td>Version of the output dataset/graph</td>
+</tr>
+<tr>
+<td><a href="target_license/">target_license</a></td>
+<td>License or terms of use for the output</td>
+</tr>
+<tr>
+<td><a href="target_title/">target_title</a></td>
+<td>Human-readable name of the output dataset/graph</td>
+</tr>
+<tr>
+<td><a href="target_type/">target_type</a></td>
+<td>Level of processing applied to the output (e</td>
+</tr>
+<tr>
+<td><a href="title/">title</a></td>
+<td>Human-readable name for this metadata object</td>
 </tr>
 </tbody>
 </table>
@@ -518,8 +570,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="PersonStatus/">PersonStatus</a></td>
-<td></td>
+<td><a href="TargetGraphType/">TargetGraphType</a></td>
+<td>Level of processing or modeling applied to the target knowledge graph</td>
 </tr>
 </tbody>
 </table>
