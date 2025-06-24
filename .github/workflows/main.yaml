@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
 
@@ -33,4 +33,7 @@ jobs:
         run: poetry install --no-interaction
 
       - name: Run test suite
-        run: make test
+        run: |
+          make test
+          poetry run codespell
+          poetry run yamllint -c .yamllint-config src/ingest_metadata/schema/ingest-metadata.yaml
