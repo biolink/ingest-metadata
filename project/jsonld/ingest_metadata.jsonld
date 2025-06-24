@@ -362,6 +362,7 @@
       "description": "Human-readable name for this metadata object",
       "from_schema": "https://w3id.org/biolink/ingest-metadata",
       "slot_uri": "https://w3id.org/biolink/vocab/title",
+      "identifier": true,
       "owner": "IngestMetadata",
       "domain_of": [
         "IngestMetadata"
@@ -710,9 +711,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "ingest_metadata.yaml",
-  "source_file_date": "2025-06-24T14:38:32",
-  "source_file_size": 4139,
-  "generation_date": "2025-06-24T14:40:14",
+  "source_file_date": "2025-06-24T23:31:48",
+  "source_file_size": 4160,
+  "generation_date": "2025-06-24T23:32:34",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/ingest_metadata.context.jsonld",

@@ -1,5 +1,5 @@
 # Auto generated from ingest_metadata.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-06-24T14:40:15
+# Generation date: 2025-06-24T23:32:34
 # Schema: ingest_metadata
 #
 # id: https://w3id.org/biolink/ingest-metadata
@@ -72,7 +72,8 @@ DEFAULT_ = BIOLINK
 # Types
 
 # Class references
-
+class IngestMetadataTitle(extended_str):
+    pass
 
 
 @dataclass(repr=False)
@@ -87,7 +88,7 @@ class IngestMetadata(YAMLRoot):
     class_name: ClassVar[str] = "IngestMetadata"
     class_model_uri: ClassVar[URIRef] = BIOLINK.IngestMetadata
 
-    title: str = None
+    title: Union[str, IngestMetadataTitle] = None
     creation_date: Union[str, XSDDate] = None
     ingest_code_url: Union[str, URIorCURIE] = None
     source_infores_id: Union[str, URIorCURIE] = None
@@ -114,8 +115,8 @@ class IngestMetadata(YAMLRoot):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.title):
             self.MissingRequiredField("title")
-        if not isinstance(self.title, str):
-            self.title = str(self.title)
+        if not isinstance(self.title, IngestMetadataTitle):
+            self.title = IngestMetadataTitle(self.title)
 
         if self._is_empty(self.creation_date):
             self.MissingRequiredField("creation_date")
@@ -235,7 +236,7 @@ class slots:
     pass
 
 slots.title = Slot(uri=BIOLINK.title, name="title", curie=BIOLINK.curie('title'),
-                   model_uri=BIOLINK.title, domain=None, range=str)
+                   model_uri=BIOLINK.title, domain=None, range=URIRef)
 
 slots.created_by = Slot(uri=BIOLINK.created_by, name="created_by", curie=BIOLINK.curie('created_by'),
                    model_uri=BIOLINK.created_by, domain=None, range=Optional[Union[str, list[str]]])
