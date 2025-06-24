@@ -1,0 +1,32 @@
+{
+  "template": "https://github.com/linkml/linkml-project-cookiecutter",
+  "commit": "494e28e5496acc76558c07c95dea62d2db05081c",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "ingest-metadata",
+      "__project_slug": "ingest_metadata",
+      "github_org": "biolink",
+      "__source_path": "src/ingest_metadata/schema/ingest_metadata.yaml",
+      "project_description": "Schema hosting relevant metadata for a data transformation conformant to the Biolink Model",
+      "full_name": "Matt Brush",
+      "email": "matt@tislab.org",
+      "__author": "Matt Brush <matt@tislab.org>",
+      "license": "MIT",
+      "main_schema_class": "IngestMetadata",
+      "create_python_classes": "Yes",
+      "use_schemasheets": "No",
+      "google_sheet_id": "1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ",
+      "google_sheet_tabs": "personinfo enums",
+      "__google_sheet_module": "personinfo_enums",
+      "github_token_for_pypi_deployment": "PYPI_PASSWORD",
+      "_copy_without_render": [
+        "justfile",
+        "src/docs/js/*",
+        "src/docs/javascript/*"
+      ],
+      "_template": "https://github.com/linkml/linkml-project-cookiecutter"
+    }
+  },
+  "directory": null
+}

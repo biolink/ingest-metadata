@@ -1,0 +1,31 @@
+# metamodel_version: 1.7.0
+enum PersonStatus
+  {
+    ALIVE
+    DEAD
+    UNKNOWN
+  }
+
+type IngestMetadata
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    primaryEmail: String
+    birthDate: Date
+    ageInYears: Integer
+    vitalStatus: PersonStatus
+  }
+
+type IngestMetadataCollection
+  {
+    entries: [IngestMetadata]
+  }
+
+type NamedThing
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
