@@ -20,13 +20,49 @@ Schema hosting relevant metadata for a data transformation conformant to the Bio
 
 ## Developer Documentation
 
-<details>
+### Prerequisites
+
+This project uses [uv](https://docs.astral.sh/uv/) for dependency management. Install uv first:
+
+```bash
+# On macOS and Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# On Windows
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Alternative: using pip
+pip install uv
+```
+
+### Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/biolink/ingest-metadata.git
+cd ingest-metadata
+```
+
+2. Install dependencies:
+```bash
+uv sync
+```
+
+3. Run tests:
+```bash
+make test
+```
+
+### Development Commands
+
 To run commands you may use good old make or the command runner [just](https://github.com/casey/just/) which is a better choice on Windows.
 Use the `make` command or `duty` commands to generate project artefacts:
 * `make help` or `just --list`: list all pre-defined tasks
 * `make all` or `just all`: make everything
 * `make deploy` or `just deploy`: deploys site
-</details>
+* `make install`: install dependencies with uv
+* `uv sync`: install dependencies directly with uv
+* `make test`: run tests
 
 ## Credits
 

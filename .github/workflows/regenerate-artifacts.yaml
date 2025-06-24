@@ -20,23 +20,26 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
 
       - name: Setup Python Environment
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          # Version range or exact version of a Python version to use, using SemVer's version range syntax.
-          python-version: 3.9
+          python-version: "3.11"
 
       - name: Setup build environment
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential git wget curl
-          pip install poetry
 
       - name: Generate Biolink Model artifacts
         run: |
-          poetry install
+          uv sync
           make gen-project
           make test
           if [ $? -eq 0 ]; then

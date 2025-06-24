@@ -10,6 +10,12 @@ jobs:
   validate-yaml:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: Install dependencies
+        run: uv sync
       - name: Validate YAML file
-        run: yamllint -c .yamllint-config src/ingest_metadata/schema/ingest_metadata.yaml
+        run: uv run yamllint -c .yamllint-config src/ingest_metadata/schema/ingest_metadata.yaml
