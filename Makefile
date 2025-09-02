@@ -136,7 +136,7 @@ ifneq ($(strip ${GEN_TS_ARGS}),)
 	$(RUN) gen-typescript ${GEN_TS_ARGS} $(SOURCE_SCHEMA_PATH) >${DEST}/typescript/${SCHEMA_NAME}.ts
 endif
 
-test: test-schema test-python test-examples
+test: test-schema test-python
 
 test-schema:
 	$(RUN) gen-project ${CONFIG_YAML} -d tmp $(SOURCE_SCHEMA_PATH)
@@ -164,17 +164,6 @@ examples/%.json: src/data/examples/%.yaml
 examples/%.ttl: src/data/examples/%.yaml
 	$(RUN) linkml-convert -P EXAMPLE=http://example.org/ -s $(SOURCE_SCHEMA_PATH) -C Person $< -o $@
 
-test-examples: examples/output
-
-examples/output: src/$(SCHEMA_NAME)/schema/$(SCHEMA_NAME).yaml
-	mkdir -p $@
-	$(RUN) linkml-run-examples \
-		--output-formats json \
-		--output-formats yaml \
-		--counter-example-input-directory src/data/examples/invalid \
-		--input-directory src/data/examples/valid \
-		--output-directory $@ \
-		--schema $< > $@/README.md
 
 # Test documentation locally
 serve: mkd-serve

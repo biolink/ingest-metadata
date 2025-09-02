@@ -4,10 +4,10 @@ name: kgx_ingest_metadata_schema
 title: KGX Ingest Metadata Schema
 description: >-
   A schema for describing metadata about a specific execution of a source ingest to produce a specific KGX-format graph.
-comment: >-
-  An ingest metadata file holds information about a specific execution of an ingest of a given source - of which there may be many over time, to produce different instances KGX outputs.
-  A RIG describes more general specification and rationale for ingesting a given source, that is mean to apply across any specific ingest execution.
-  Content of these two descriptive artifacts is intended to be complementary / non-overlapping. 
+comments:
+  - An ingest metadata file holds information about a specific execution of an ingest of a given source - of which there may be many over time, to produce different instances KGX outputs.
+  - A RIG describes more general specification and rationale for ingesting a given source, that is mean to apply across any specific ingest execution.
+  - Content of these two descriptive artifacts is intended to be complementary / non-overlapping. 
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 0.1.0
 prefixes:
@@ -28,7 +28,7 @@ classes:
 
     # Information about the ingest metadata file itself
       file_name:
-        file_description: An informative, human-readable name for this metadata file/object. e.g. "2025-08-18 Translator CTD Ingest Metadata" 
+        description: An informative, human-readable name for this metadata file/object. e.g. "2025-08-18 Translator CTD Ingest Metadata" 
         range: string
         required: true
       file_created_by:
@@ -82,7 +82,8 @@ classes:
         required: true
       target_model:
         description: Name/identifier of the data model used to structure the KGX graph data. 
-        comment: This will be Biolink Model for all Translator graphs - which can be referenced as "https://w3id.org/biolink/biolink-model"
+        comments:
+          - This will be Biolink Model for all Translator graphs - which can be referenced as "https://w3id.org/biolink/biolink-model"
         range: string
         required: true
       target_model_url:

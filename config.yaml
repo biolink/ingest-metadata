@@ -9,9 +9,6 @@ generator_args:
     type_objects: true
     # throws 'Cannot handle metadata profile: rdfs'
     # metadata_profile: rdfs
-  markdown:
-    mergeimports: true
-    template_directory: src/doc-templates
   graphql:
     mergeimports: true
   java:
