@@ -377,7 +377,7 @@
 
 
 <h1 id="slot-source_data_version">Slot: source_data_version</h1>
-<p><em>Version of the ingested source data</em></p>
+<p><em>Version of the source data ingested (using source's own conventions).</em></p>
 <p>URI: <a href="https://w3id.org/biolink/vocab/source_data_version">biolink:source_data_version</a>
 Alias: source_data_version</p>
 <!-- no inheritance hierarchy -->
@@ -393,25 +393,20 @@ Alias: source_data_version</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../IngestMetadata/">IngestMetadata</a></td>
-<td>Metadata about a specific data ingest process and its outputs</td>
+<td><a href="../IngestMetadataFile/">IngestMetadataFile</a></td>
+<td>Information about a particular ingest perfomred to produce a KGX graph, descr...</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../String/">String</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/biolink/ingest-metadata</li>
+<li>from schema: https://w3id.org/biolink/kgx/ingest-metadata-schema</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -436,14 +431,14 @@ Alias: source_data_version</p>
 <details>
 
 <pre><code class="language-yaml">name: source_data_version
-description: Version of the ingested source data
-from_schema: https://w3id.org/biolink/ingest-metadata
+description: Version of the source data ingested (using source's own conventions).
+from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
 rank: 1000
 alias: source_data_version
+owner: IngestMetadataFile
 domain_of:
-- IngestMetadata
+- IngestMetadataFile
 range: string
-required: true
 
 </code></pre>
 

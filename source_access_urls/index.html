@@ -377,7 +377,7 @@
 
 
 <h1 id="slot-source_access_urls">Slot: source_access_urls</h1>
-<p><em>URLs from which the source data was accessed</em></p>
+<p><em>URLs where source data was accessed / downloaded / queried to be brought into the system performing the ingest.</em></p>
 <p>URI: <a href="https://w3id.org/biolink/vocab/source_access_urls">biolink:source_access_urls</a>
 Alias: source_access_urls</p>
 <!-- no inheritance hierarchy -->
@@ -393,8 +393,8 @@ Alias: source_access_urls</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../IngestMetadata/">IngestMetadata</a></td>
-<td>Metadata about a specific data ingest process and its outputs</td>
+<td><a href="../IngestMetadataFile/">IngestMetadataFile</a></td>
+<td>Information about a particular ingest perfomred to produce a KGX graph, descr...</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -411,7 +411,7 @@ Alias: source_access_urls</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/biolink/ingest-metadata</li>
+<li>from schema: https://w3id.org/biolink/kgx/ingest-metadata-schema</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -436,14 +436,15 @@ Alias: source_access_urls</p>
 <details>
 
 <pre><code class="language-yaml">name: source_access_urls
-description: URLs from which the source data was accessed
-from_schema: https://w3id.org/biolink/ingest-metadata
+description: URLs where source data was accessed / downloaded / queried to be brought
+  into the system performing the ingest.
+from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
 rank: 1000
 alias: source_access_urls
+owner: IngestMetadataFile
 domain_of:
-- IngestMetadata
+- IngestMetadataFile
 range: uriorcurie
-required: false
 multivalued: true
 
 </code></pre>

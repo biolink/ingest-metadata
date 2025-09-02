@@ -377,7 +377,7 @@
 
 
 <h1 id="slot-node_normalizer">Slot: node_normalizer</h1>
-<p><em>Name of the node normalizer used</em></p>
+<p><em>Name/identifier of the algorithm/tool used to perform node normalization on the ingested data. e.g. "Babel"</em></p>
 <p>URI: <a href="https://w3id.org/biolink/vocab/node_normalizer">biolink:node_normalizer</a>
 Alias: node_normalizer</p>
 <!-- no inheritance hierarchy -->
@@ -393,8 +393,8 @@ Alias: node_normalizer</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../IngestMetadata/">IngestMetadata</a></td>
-<td>Metadata about a specific data ingest process and its outputs</td>
+<td><a href="../IngestMetadataFile/">IngestMetadataFile</a></td>
+<td>Information about a particular ingest perfomred to produce a KGX graph, descr...</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -406,7 +406,7 @@ Alias: node_normalizer</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/biolink/ingest-metadata</li>
+<li>from schema: https://w3id.org/biolink/kgx/ingest-metadata-schema</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -431,14 +431,15 @@ Alias: node_normalizer</p>
 <details>
 
 <pre><code class="language-yaml">name: node_normalizer
-description: Name of the node normalizer used
-from_schema: https://w3id.org/biolink/ingest-metadata
+description: Name/identifier of the algorithm/tool used to perform node normalization
+  on the ingested data. e.g. &quot;Babel&quot;
+from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
 rank: 1000
 alias: node_normalizer
+owner: IngestMetadataFile
 domain_of:
-- IngestMetadata
+- IngestMetadataFile
 range: string
-required: false
 
 </code></pre>
 

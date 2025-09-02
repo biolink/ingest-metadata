@@ -2,190 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://biolink.github.io/ingest-metadata/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Boolean/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Curie/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Date/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/DateOrDatetime/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Datetime/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Decimal/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Double/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Float/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/IngestMetadata/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/IngestMetadataFile/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Integer/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Jsonpath/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Jsonpointer/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Ncname/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Nodeidentifier/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Objectidentifier/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Sparqlpath/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/String/</loc>
-         <lastmod>2025-06-24</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/ingest-metadata/TargetGraphType/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Time/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Uri/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/Uriorcurie/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/about/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/created_by/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/edge_predicates/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/creation_date/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/file_created_by/</loc>
+         <lastmod>2025-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/ingest-metadata/file_creation_date/</loc>
+         <lastmod>2025-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/ingest-metadata/file_name/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/ingest_code_url/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/ingest_guide_url/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/kgx_ingest_metadata_schema/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/ingest_metadata/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/node_categories/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/node_normalizer/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/ingest-metadata/node_normalizer_url/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/node_normalizer_version/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/ingest-metadata/orphan_node_count/</loc>
+         <lastmod>2025-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/ingest-metadata/source_access_date/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/source_access_urls/</loc>
-         <lastmod>2025-06-24</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/ingest-metadata/source_data_files/</loc>
-         <lastmod>2025-06-24</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/ingest-metadata/source_data_formats/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/source_data_version/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/source_download_date/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/source_file_names/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/source_infores_id/</loc>
-         <lastmod>2025-06-24</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/ingest-metadata/source_license/</loc>
-         <lastmod>2025-06-24</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/ingest-metadata/source_publication_date/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/target_creation_date/</loc>
-         <lastmod>2025-06-24</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/ingest-metadata/target_data_format/</loc>
-         <lastmod>2025-06-24</lastmod>
-    </url>
-    <url>
-         <loc>https://biolink.github.io/ingest-metadata/target_data_model/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
          <loc>https://biolink.github.io/ingest-metadata/target_data_model_version/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/target_data_version/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/target_format/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/target_license/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/target_model/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/target_title/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/target_model_url/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/target_type/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/target_name/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
     <url>
-         <loc>https://biolink.github.io/ingest-metadata/title/</loc>
-         <lastmod>2025-06-24</lastmod>
+         <loc>https://biolink.github.io/ingest-metadata/total_edge_count/</loc>
+         <lastmod>2025-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://biolink.github.io/ingest-metadata/total_node_count/</loc>
+         <lastmod>2025-09-02</lastmod>
     </url>
 </urlset>

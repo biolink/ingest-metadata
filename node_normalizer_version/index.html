@@ -377,7 +377,7 @@
 
 
 <h1 id="slot-node_normalizer_version">Slot: node_normalizer_version</h1>
-<p><em>Version of the node normalizer used</em></p>
+<p><em>Version of the node normalization tool/algorithm.</em></p>
 <p>URI: <a href="https://w3id.org/biolink/vocab/node_normalizer_version">biolink:node_normalizer_version</a>
 Alias: node_normalizer_version</p>
 <!-- no inheritance hierarchy -->
@@ -393,8 +393,8 @@ Alias: node_normalizer_version</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../IngestMetadata/">IngestMetadata</a></td>
-<td>Metadata about a specific data ingest process and its outputs</td>
+<td><a href="../IngestMetadataFile/">IngestMetadataFile</a></td>
+<td>Information about a particular ingest perfomred to produce a KGX graph, descr...</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -406,7 +406,7 @@ Alias: node_normalizer_version</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/biolink/ingest-metadata</li>
+<li>from schema: https://w3id.org/biolink/kgx/ingest-metadata-schema</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -431,14 +431,14 @@ Alias: node_normalizer_version</p>
 <details>
 
 <pre><code class="language-yaml">name: node_normalizer_version
-description: Version of the node normalizer used
-from_schema: https://w3id.org/biolink/ingest-metadata
+description: Version of the node normalization tool/algorithm.
+from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
 rank: 1000
 alias: node_normalizer_version
+owner: IngestMetadataFile
 domain_of:
-- IngestMetadata
+- IngestMetadataFile
 range: string
-required: false
 
 </code></pre>
 
