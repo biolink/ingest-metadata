@@ -4,10 +4,10 @@ name: kgx_ingest_metadata_schema
 title: KGX Ingest Metadata Schema
 description: >-
   A schema for describing metadata about a specific execution of a source ingest to produce a specific KGX-format graph.
-comments:
+comments: >-
   - An ingest metadata file holds information about a specific execution of an ingest of a given source - of which there may be many over time, to produce different instances KGX outputs.
   - A RIG describes more general specification and rationale for ingesting a given source, that is mean to apply across any specific ingest execution.
-  - Content of these two descriptive artifacts is intended to be complementary / non-overlapping. 
+  - Content of these two descriptive artifacts is intended to be complementary / non-overlapping.
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 0.1.0
 prefixes:
@@ -28,7 +28,7 @@ classes:
 
     # Information about the ingest metadata file itself
       file_name:
-        description: An informative, human-readable name for this metadata file/object. e.g. "2025-08-18 Translator CTD Ingest Metadata" 
+        description: An informative, human-readable name for this metadata file/object. e.g. "2025-08-18 Translator CTD Ingest Metadata"
         range: string
         required: true
       file_created_by:
@@ -39,11 +39,11 @@ classes:
         description: When this metadata file was created.
         range: date
         required: true
-        
+
     # Information about the code used to execute the ingest (e.g. a specific version/branch of code used)
       ingest_code_url:
         description: URL of the specific official release or tagged branch of the ingest code executed to perform the ingest.
-        range: uriorcurie 
+        range: uriorcurie
         required: true
 
     # Information about when/how the source was accessed in performing the ingest
@@ -67,7 +67,7 @@ classes:
         range: string
         multivalued: true
 
-    # Inforamtion about the target KGX graph produced by this execution of the source ingest 
+    # Inforamtion about the target KGX graph produced by this execution of the source ingest
       target_name:
         description: A unique human readable name of the target data set/graph produced by this ingest. e.g. "2025-08-18 Translator CTD Ingest Graph"
         range: string
@@ -81,7 +81,7 @@ classes:
         range: string
         required: true
       target_model:
-        description: Name/identifier of the data model used to structure the KGX graph data. 
+        description: Name/identifier of the data model used to structure the KGX graph data.
         comments:
           - This will be Biolink Model for all Translator graphs - which can be referenced as "https://w3id.org/biolink/biolink-model"
         range: string
@@ -98,12 +98,12 @@ classes:
         range: string
       node_normalizer_version:
         description: Version of the node normalization tool/algorithm.
-        range: string     
+        range: string
       node_normalizer_url:
         description: URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  "https://github.com/TranslatorSRI/NodeNormalization"
         range: string
-        
-    # Metrics about the content of the specific KGX graph produced by the ingest         
+
+    # Metrics about the content of the specific KGX graph produced by the ingest
       total_edge_count:
         description: Count of total edges in the graph.
         range: integer
