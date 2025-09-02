@@ -67,22 +67,22 @@ CREATE TABLE "IngestMetadataFile_source_access_urls" (
 	source_access_urls TEXT,
 	PRIMARY KEY ("IngestMetadataFile_id", source_access_urls),
 	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
-);CREATE INDEX "ix_IngestMetadataFile_source_access_urls_IngestMetadataFile_id" ON "IngestMetadataFile_source_access_urls" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_source_access_urls_source_access_urls" ON "IngestMetadataFile_source_access_urls" (source_access_urls);
+);CREATE INDEX "ix_IngestMetadataFile_source_access_urls_source_access_urls" ON "IngestMetadataFile_source_access_urls" (source_access_urls);CREATE INDEX "ix_IngestMetadataFile_source_access_urls_IngestMetadataFile_id" ON "IngestMetadataFile_source_access_urls" ("IngestMetadataFile_id");
 CREATE TABLE "IngestMetadataFile_source_file_names" (
 	"IngestMetadataFile_id" INTEGER,
 	source_file_names TEXT,
 	PRIMARY KEY ("IngestMetadataFile_id", source_file_names),
 	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
-);CREATE INDEX "ix_IngestMetadataFile_source_file_names_source_file_names" ON "IngestMetadataFile_source_file_names" (source_file_names);CREATE INDEX "ix_IngestMetadataFile_source_file_names_IngestMetadataFile_id" ON "IngestMetadataFile_source_file_names" ("IngestMetadataFile_id");
+);CREATE INDEX "ix_IngestMetadataFile_source_file_names_IngestMetadataFile_id" ON "IngestMetadataFile_source_file_names" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_source_file_names_source_file_names" ON "IngestMetadataFile_source_file_names" (source_file_names);
 CREATE TABLE "IngestMetadataFile_node_categories" (
 	"IngestMetadataFile_id" INTEGER,
 	node_categories TEXT,
 	PRIMARY KEY ("IngestMetadataFile_id", node_categories),
 	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
-);CREATE INDEX "ix_IngestMetadataFile_node_categories_IngestMetadataFile_id" ON "IngestMetadataFile_node_categories" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_node_categories_node_categories" ON "IngestMetadataFile_node_categories" (node_categories);
+);CREATE INDEX "ix_IngestMetadataFile_node_categories_node_categories" ON "IngestMetadataFile_node_categories" (node_categories);CREATE INDEX "ix_IngestMetadataFile_node_categories_IngestMetadataFile_id" ON "IngestMetadataFile_node_categories" ("IngestMetadataFile_id");
 CREATE TABLE "IngestMetadataFile_edge_predicates" (
 	"IngestMetadataFile_id" INTEGER,
 	edge_predicates TEXT,
 	PRIMARY KEY ("IngestMetadataFile_id", edge_predicates),
 	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
-);CREATE INDEX "ix_IngestMetadataFile_edge_predicates_edge_predicates" ON "IngestMetadataFile_edge_predicates" (edge_predicates);CREATE INDEX "ix_IngestMetadataFile_edge_predicates_IngestMetadataFile_id" ON "IngestMetadataFile_edge_predicates" ("IngestMetadataFile_id");
+);CREATE INDEX "ix_IngestMetadataFile_edge_predicates_IngestMetadataFile_id" ON "IngestMetadataFile_edge_predicates" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_edge_predicates_edge_predicates" ON "IngestMetadataFile_edge_predicates" (edge_predicates);
