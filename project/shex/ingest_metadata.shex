@@ -1,4 +1,5 @@
 # metamodel_version: 1.7.0
+# version: 0.1.0
 BASE <https://w3id.org/biolink/vocab/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -43,31 +44,31 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
-<IngestMetadata> CLOSED {
-    (  $<IngestMetadata_tes> (  <created_by> @linkml:String * ;
-          <creation_date> @linkml:Date ;
+<IngestMetadataFile> CLOSED {
+    (  $<IngestMetadataFile_tes> (  <file_name> @linkml:String ;
+          <file_created_by> @linkml:String * ;
+          <file_creation_date> @linkml:Date ;
           <ingest_code_url> @linkml:Uriorcurie ;
-          <ingest_guide_url> @linkml:Uriorcurie ? ;
           <source_infores_id> @linkml:Uriorcurie ;
-          <source_license> @linkml:String ? ;
-          <source_data_version> @linkml:String ;
-          <source_publication_date> @linkml:Date ? ;
-          <source_download_date> @linkml:Date ? ;
+          <source_data_version> @linkml:String ? ;
+          <source_access_date> @linkml:Date ;
           <source_access_urls> @linkml:Uriorcurie * ;
-          <source_data_formats> @linkml:String * ;
-          <source_data_files> @linkml:String * ;
-          <target_title> @linkml:String ;
-          <target_type> @linkml:String ;
-          <target_data_version> @linkml:String ;
+          <source_file_names> @linkml:String * ;
+          <target_name> @linkml:String ;
           <target_creation_date> @linkml:Date ;
-          <target_license> @linkml:String ;
-          <target_data_format> @linkml:String ;
-          <target_data_model> @linkml:String ? ;
-          <target_data_model_version> @linkml:String ? ;
+          <target_format> @linkml:String ;
+          <target_model> @linkml:String ;
+          <target_model_url> @linkml:String ? ;
+          <target_data_model_version> @linkml:String ;
           <node_normalizer> @linkml:String ? ;
-          <node_normalizer_version> @linkml:String ?
+          <node_normalizer_version> @linkml:String ? ;
+          <node_normalizer_url> @linkml:String ? ;
+          <total_edge_count> @linkml:Integer ? ;
+          <total_node_count> @linkml:Integer ? ;
+          <orphan_node_count> @linkml:Integer ? ;
+          <node_categories> @linkml:String * ;
+          <edge_predicates> @linkml:String *
        ) ;
-       rdf:type [ <IngestMetadata> ]
+       rdf:type [ <IngestMetadataFile> ] ?
     )
 }
-

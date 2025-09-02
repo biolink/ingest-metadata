@@ -1,35 +1,28 @@
 # metamodel_version: 1.7.0
-enum TargetGraphType
+# version: 0.1.0
+type IngestMetadataFile
   {
-    SourceKG
-    BiolinkKG
-    NormalizedKG
-  }
-
-type IngestMetadata
-  {
-    title: String!
-    createdBy: [String]
-    creationDate: Date!
+    fileName: String!
+    fileCreatedBy: [String]
+    fileCreationDate: Date!
     ingestCodeUrl: Uriorcurie!
-    ingestGuideUrl: Uriorcurie
     sourceInforesId: Uriorcurie!
-    sourceLicense: String
-    sourceDataVersion: String!
-    sourcePublicationDate: Date
-    sourceDownloadDate: Date
+    sourceDataVersion: String
+    sourceAccessDate: Date!
     sourceAccessUrls: [Uriorcurie]
-    sourceDataFormats: [String]
-    sourceDataFiles: [String]
-    targetTitle: String!
-    targetType: String!
-    targetDataVersion: String!
+    sourceFileNames: [String]
+    targetName: String!
     targetCreationDate: Date!
-    targetLicense: String!
-    targetDataFormat: String!
-    targetDataModel: String
-    targetDataModelVersion: String
+    targetFormat: String!
+    targetModel: String!
+    targetModelUrl: String
+    targetDataModelVersion: String!
     nodeNormalizer: String
     nodeNormalizerVersion: String
+    nodeNormalizerUrl: String
+    totalEdgeCount: Integer
+    totalNodeCount: Integer
+    orphanNodeCount: Integer
+    nodeCategories: [String]
+    edgePredicates: [String]
   }
-

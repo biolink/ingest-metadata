@@ -1,30 +1,32 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
-// Metadata about a specific data ingest process and its outputs
-message IngestMetadata
+// version: 0.1.0
+// Information about a particular ingest perfomred to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.
+// 
+message IngestMetadataFile
  {
-  string title = 0
- repeated  string createdBy = 0
-  date creationDate = 0
+  string fileName = 0
+ repeated  string fileCreatedBy = 0
+  date fileCreationDate = 0
   uriorcurie ingestCodeUrl = 0
-  uriorcurie ingestGuideUrl = 0
   uriorcurie sourceInforesId = 0
-  string sourceLicense = 0
   string sourceDataVersion = 0
-  date sourcePublicationDate = 0
-  date sourceDownloadDate = 0
+  date sourceAccessDate = 0
  repeated  uriorcurie sourceAccessUrls = 0
- repeated  string sourceDataFormats = 0
- repeated  string sourceDataFiles = 0
-  string targetTitle = 0
-  string targetType = 0
-  string targetDataVersion = 0
+ repeated  string sourceFileNames = 0
+  string targetName = 0
   date targetCreationDate = 0
-  string targetLicense = 0
-  string targetDataFormat = 0
-  string targetDataModel = 0
+  string targetFormat = 0
+  string targetModel = 0
+  string targetModelUrl = 0
   string targetDataModelVersion = 0
   string nodeNormalizer = 0
   string nodeNormalizerVersion = 0
+  string nodeNormalizerUrl = 0
+  integer totalEdgeCount = 0
+  integer totalNodeCount = 0
+  integer orphanNodeCount = 0
+ repeated  string nodeCategories = 0
+ repeated  string edgePredicates = 0
  }

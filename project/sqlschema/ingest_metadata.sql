@@ -1,79 +1,88 @@
--- # Class: "IngestMetadata" Description: "Metadata about a specific data ingest process and its outputs"
---     * Slot: title Description: Human-readable name for this metadata object
---     * Slot: creation_date Description: Date the ingest metadata was created
---     * Slot: ingest_code_url Description: URL of the code used for the ingest (tagged release or branch)
---     * Slot: ingest_guide_url Description: URL of the RIG (Reference Ingest Guide)
---     * Slot: source_infores_id Description: Infores identifier of the ingested source
---     * Slot: source_license Description: License or terms of use for the source
---     * Slot: source_data_version Description: Version of the ingested source data
---     * Slot: source_publication_date Description: Date the source data was published
---     * Slot: source_download_date Description: Date the source data was downloaded
---     * Slot: target_title Description: Human-readable name of the output dataset/graph
---     * Slot: target_type Description: Level of processing applied to the output (e.g. Source-KG, Biolink KG, Normalized KG)
---     * Slot: target_data_version Description: Version of the output dataset/graph
---     * Slot: target_creation_date Description: Date the output was created
---     * Slot: target_license Description: License or terms of use for the output
---     * Slot: target_data_format Description: Format of the output graph (KGX)
---     * Slot: target_data_model Description: Data model used (Biolink Model)
---     * Slot: target_data_model_version Description: Version of the data model used
---     * Slot: node_normalizer Description: Name of the node normalizer used
---     * Slot: node_normalizer_version Description: Version of the node normalizer used
--- # Class: "IngestMetadata_created_by" Description: ""
---     * Slot: IngestMetadata_title Description: Autocreated FK slot
---     * Slot: created_by Description: One or more creators of this ingest metadata file
--- # Class: "IngestMetadata_source_access_urls" Description: ""
---     * Slot: IngestMetadata_title Description: Autocreated FK slot
---     * Slot: source_access_urls Description: URLs from which the source data was accessed
--- # Class: "IngestMetadata_source_data_formats" Description: ""
---     * Slot: IngestMetadata_title Description: Autocreated FK slot
---     * Slot: source_data_formats Description: Formats of source data files or payloads
--- # Class: "IngestMetadata_source_data_files" Description: ""
---     * Slot: IngestMetadata_title Description: Autocreated FK slot
---     * Slot: source_data_files Description: List of source file names ingested
+-- # Class: IngestMetadataFile Description: Information about a particular ingest perfomred to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.
+--     * Slot: id
+--     * Slot: file_name Description: An informative, human-readable name for this metadata file/object. e.g. "2025-08-18 Translator CTD Ingest Metadata"
+--     * Slot: file_creation_date Description: When this metadata file was created.
+--     * Slot: ingest_code_url Description: URL of the specific official release or tagged branch of the ingest code executed to perform the ingest.
+--     * Slot: source_infores_id Description: Infores identifier of the ingested source.
+--     * Slot: source_data_version Description: Version of the source data ingested (using source's own conventions).
+--     * Slot: source_access_date Description: Date the source data was accessed/downloaded into the system that performed the ingest.
+--     * Slot: target_name Description: A unique human readable name of the target data set/graph produced by this ingest. e.g. "2025-08-18 Translator CTD Ingest Graph"
+--     * Slot: target_creation_date Description: Date the target data set/graph was created.
+--     * Slot: target_format Description: Format in which the KGX graph is serialized (e.g., "KGX-jsonlines").
+--     * Slot: target_model Description: Name/identifier of the data model used to structure the KGX graph data.
+--     * Slot: target_model_url Description: A URL providing information about the data model used to structure the KGX graph data. e.g. "https://biolink.github.io/biolink-model/"
+--     * Slot: target_data_model_version Description: Version of the target data model used to structure the KGX graph data. e.g. "4.2.6-rc5"
+--     * Slot: node_normalizer Description: Name/identifier of the algorithm/tool used to perform node normalization on the ingested data. e.g. "Babel"
+--     * Slot: node_normalizer_version Description: Version of the node normalization tool/algorithm.
+--     * Slot: node_normalizer_url Description: URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  "https://github.com/TranslatorSRI/NodeNormalization"
+--     * Slot: total_edge_count Description: Count of total edges in the graph.
+--     * Slot: total_node_count Description: Count of total nodes in the graph.
+--     * Slot: orphan_node_count Description: Count of nodes in the graph that do not participate in an edge.
+-- # Class: IngestMetadataFile_file_created_by
+--     * Slot: IngestMetadataFile_id Description: Autocreated FK slot
+--     * Slot: file_created_by Description: The agent(s) (person if hand-authored, software tool if created programmatically) that created this ingest metadata file.
+-- # Class: IngestMetadataFile_source_access_urls
+--     * Slot: IngestMetadataFile_id Description: Autocreated FK slot
+--     * Slot: source_access_urls Description: URLs where source data was accessed / downloaded / queried to be brought into the system performing the ingest.
+-- # Class: IngestMetadataFile_source_file_names
+--     * Slot: IngestMetadataFile_id Description: Autocreated FK slot
+--     * Slot: source_file_names Description: File names from which content used to produce the output KGX graph was retrieved.
+-- # Class: IngestMetadataFile_node_categories
+--     * Slot: IngestMetadataFile_id Description: Autocreated FK slot
+--     * Slot: node_categories Description: List of all Biolink categories used for nodes in the graph.
+-- # Class: IngestMetadataFile_edge_predicates
+--     * Slot: IngestMetadataFile_id Description: Autocreated FK slot
+--     * Slot: edge_predicates Description: List of all Biolink predicates used in the graph.
 
-CREATE TABLE "IngestMetadata" (
-	title TEXT NOT NULL, 
-	creation_date DATE NOT NULL, 
-	ingest_code_url TEXT NOT NULL, 
-	ingest_guide_url TEXT, 
-	source_infores_id TEXT NOT NULL, 
-	source_license TEXT, 
-	source_data_version TEXT NOT NULL, 
-	source_publication_date DATE, 
-	source_download_date DATE, 
-	target_title TEXT NOT NULL, 
-	target_type TEXT NOT NULL, 
-	target_data_version TEXT NOT NULL, 
-	target_creation_date DATE NOT NULL, 
-	target_license TEXT NOT NULL, 
-	target_data_format TEXT NOT NULL, 
-	target_data_model TEXT, 
-	target_data_model_version TEXT, 
-	node_normalizer TEXT, 
-	node_normalizer_version TEXT, 
-	PRIMARY KEY (title)
-);
-CREATE TABLE "IngestMetadata_created_by" (
-	"IngestMetadata_title" TEXT, 
-	created_by TEXT, 
-	PRIMARY KEY ("IngestMetadata_title", created_by), 
-	FOREIGN KEY("IngestMetadata_title") REFERENCES "IngestMetadata" (title)
-);
-CREATE TABLE "IngestMetadata_source_access_urls" (
-	"IngestMetadata_title" TEXT, 
-	source_access_urls TEXT, 
-	PRIMARY KEY ("IngestMetadata_title", source_access_urls), 
-	FOREIGN KEY("IngestMetadata_title") REFERENCES "IngestMetadata" (title)
-);
-CREATE TABLE "IngestMetadata_source_data_formats" (
-	"IngestMetadata_title" TEXT, 
-	source_data_formats TEXT, 
-	PRIMARY KEY ("IngestMetadata_title", source_data_formats), 
-	FOREIGN KEY("IngestMetadata_title") REFERENCES "IngestMetadata" (title)
-);
-CREATE TABLE "IngestMetadata_source_data_files" (
-	"IngestMetadata_title" TEXT, 
-	source_data_files TEXT, 
-	PRIMARY KEY ("IngestMetadata_title", source_data_files), 
-	FOREIGN KEY("IngestMetadata_title") REFERENCES "IngestMetadata" (title)
-);
+CREATE TABLE "IngestMetadataFile" (
+	id INTEGER NOT NULL,
+	file_name TEXT NOT NULL,
+	file_creation_date DATE NOT NULL,
+	ingest_code_url TEXT NOT NULL,
+	source_infores_id TEXT NOT NULL,
+	source_data_version TEXT,
+	source_access_date DATE NOT NULL,
+	target_name TEXT NOT NULL,
+	target_creation_date DATE NOT NULL,
+	target_format TEXT NOT NULL,
+	target_model TEXT NOT NULL,
+	target_model_url TEXT,
+	target_data_model_version TEXT NOT NULL,
+	node_normalizer TEXT,
+	node_normalizer_version TEXT,
+	node_normalizer_url TEXT,
+	total_edge_count INTEGER,
+	total_node_count INTEGER,
+	orphan_node_count INTEGER,
+	PRIMARY KEY (id)
+);CREATE INDEX "ix_IngestMetadataFile_id" ON "IngestMetadataFile" (id);
+CREATE TABLE "IngestMetadataFile_file_created_by" (
+	"IngestMetadataFile_id" INTEGER,
+	file_created_by TEXT,
+	PRIMARY KEY ("IngestMetadataFile_id", file_created_by),
+	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
+);CREATE INDEX "ix_IngestMetadataFile_file_created_by_IngestMetadataFile_id" ON "IngestMetadataFile_file_created_by" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_file_created_by_file_created_by" ON "IngestMetadataFile_file_created_by" (file_created_by);
+CREATE TABLE "IngestMetadataFile_source_access_urls" (
+	"IngestMetadataFile_id" INTEGER,
+	source_access_urls TEXT,
+	PRIMARY KEY ("IngestMetadataFile_id", source_access_urls),
+	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
+);CREATE INDEX "ix_IngestMetadataFile_source_access_urls_IngestMetadataFile_id" ON "IngestMetadataFile_source_access_urls" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_source_access_urls_source_access_urls" ON "IngestMetadataFile_source_access_urls" (source_access_urls);
+CREATE TABLE "IngestMetadataFile_source_file_names" (
+	"IngestMetadataFile_id" INTEGER,
+	source_file_names TEXT,
+	PRIMARY KEY ("IngestMetadataFile_id", source_file_names),
+	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
+);CREATE INDEX "ix_IngestMetadataFile_source_file_names_source_file_names" ON "IngestMetadataFile_source_file_names" (source_file_names);CREATE INDEX "ix_IngestMetadataFile_source_file_names_IngestMetadataFile_id" ON "IngestMetadataFile_source_file_names" ("IngestMetadataFile_id");
+CREATE TABLE "IngestMetadataFile_node_categories" (
+	"IngestMetadataFile_id" INTEGER,
+	node_categories TEXT,
+	PRIMARY KEY ("IngestMetadataFile_id", node_categories),
+	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
+);CREATE INDEX "ix_IngestMetadataFile_node_categories_IngestMetadataFile_id" ON "IngestMetadataFile_node_categories" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_node_categories_node_categories" ON "IngestMetadataFile_node_categories" (node_categories);
+CREATE TABLE "IngestMetadataFile_edge_predicates" (
+	"IngestMetadataFile_id" INTEGER,
+	edge_predicates TEXT,
+	PRIMARY KEY ("IngestMetadataFile_id", edge_predicates),
+	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
+);CREATE INDEX "ix_IngestMetadataFile_edge_predicates_edge_predicates" ON "IngestMetadataFile_edge_predicates" (edge_predicates);CREATE INDEX "ix_IngestMetadataFile_edge_predicates_IngestMetadataFile_id" ON "IngestMetadataFile_edge_predicates" ("IngestMetadataFile_id");

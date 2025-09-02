@@ -1,8 +1,12 @@
 {
-  "name": "ingest_metadata",
-  "description": "Metadata about a data ingest process and its products.",
-  "title": "Biolink Ingest Metadata Schema",
-  "id": "https://w3id.org/biolink/ingest-metadata",
+  "name": "kgx_ingest_metadata_schema",
+  "description": "A schema for describing metadata about a specific execution of a source ingest to produce a specific KGX-format graph.",
+  "title": "KGX Ingest Metadata Schema",
+  "comments": [
+    "- An ingest metadata file holds information about a specific execution of an ingest of a given source - of which there may be many over time, to produce different instances KGX outputs. - A RIG describes more general specification and rationale for ingesting a given source, that is mean to apply across any specific ingest execution. - Content of these two descriptive artifacts is intended to be complementary / non-overlapping."
+  ],
+  "id": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+  "version": "0.1.0",
   "imports": [
     "linkml:types"
   ],
@@ -15,10 +19,6 @@
     {
       "prefix_prefix": "biolink",
       "prefix_reference": "https://w3id.org/biolink/vocab/"
-    },
-    {
-      "prefix_prefix": "translator",
-      "prefix_reference": "https://w3id.org/translator/"
     }
   ],
   "default_prefix": "biolink",
@@ -333,387 +333,524 @@
       "@type": "TypeDefinition"
     }
   ],
-  "enums": [
-    {
-      "name": "TargetGraphType",
-      "definition_uri": "https://w3id.org/biolink/vocab/TargetGraphType",
-      "description": "Level of processing or modeling applied to the target knowledge graph",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "permissible_values": [
-        {
-          "text": "SourceKG",
-          "description": "A raw source KG parsed from a source without Biolink modeling"
-        },
-        {
-          "text": "BiolinkKG",
-          "description": "A KG transformed to use Biolink classes and predicates"
-        },
-        {
-          "text": "NormalizedKG",
-          "description": "A KG that has undergone Biolink modeling and node normalization"
-        }
-      ]
-    }
-  ],
   "slots": [
     {
-      "name": "title",
-      "definition_uri": "https://w3id.org/biolink/vocab/title",
-      "description": "Human-readable name for this metadata object",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/title",
-      "identifier": true,
-      "owner": "IngestMetadata",
+      "name": "ingestMetadataFile__file_name",
+      "description": "An informative, human-readable name for this metadata file/object. e.g. \"2025-08-18 Translator CTD Ingest Metadata\"",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/file_name",
+      "alias": "file_name",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "created_by",
-      "definition_uri": "https://w3id.org/biolink/vocab/created_by",
-      "description": "One or more creators of this ingest metadata file",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/created_by",
-      "owner": "IngestMetadata",
+      "name": "ingestMetadataFile__file_created_by",
+      "description": "The agent(s) (person if hand-authored, software tool if created programmatically) that created this ingest metadata file.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/file_created_by",
+      "alias": "file_created_by",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "creation_date",
-      "definition_uri": "https://w3id.org/biolink/vocab/creation_date",
-      "description": "Date the ingest metadata was created",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/creation_date",
-      "owner": "IngestMetadata",
+      "name": "ingestMetadataFile__file_creation_date",
+      "description": "When this metadata file was created.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/file_creation_date",
+      "alias": "file_creation_date",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "date",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "ingest_code_url",
-      "definition_uri": "https://w3id.org/biolink/vocab/ingest_code_url",
-      "description": "URL of the code used for the ingest (tagged release or branch)",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
+      "name": "ingestMetadataFile__ingest_code_url",
+      "description": "URL of the specific official release or tagged branch of the ingest code executed to perform the ingest.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slot_uri": "https://w3id.org/biolink/vocab/ingest_code_url",
-      "owner": "IngestMetadata",
+      "alias": "ingest_code_url",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "uriorcurie",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "ingest_guide_url",
-      "definition_uri": "https://w3id.org/biolink/vocab/ingest_guide_url",
-      "description": "URL of the RIG (Reference Ingest Guide)",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/ingest_guide_url",
-      "owner": "IngestMetadata",
-      "domain_of": [
-        "IngestMetadata"
-      ],
-      "range": "uriorcurie",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "source_infores_id",
-      "definition_uri": "https://w3id.org/biolink/vocab/source_infores_id",
-      "description": "Infores identifier of the ingested source",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
+      "name": "ingestMetadataFile__source_infores_id",
+      "description": "Infores identifier of the ingested source.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slot_uri": "https://w3id.org/biolink/vocab/source_infores_id",
-      "owner": "IngestMetadata",
+      "alias": "source_infores_id",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "uriorcurie",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "source_license",
-      "definition_uri": "https://w3id.org/biolink/vocab/source_license",
-      "description": "License or terms of use for the source",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/source_license",
-      "owner": "IngestMetadata",
-      "domain_of": [
-        "IngestMetadata"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "source_data_version",
-      "definition_uri": "https://w3id.org/biolink/vocab/source_data_version",
-      "description": "Version of the ingested source data",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
+      "name": "ingestMetadataFile__source_data_version",
+      "description": "Version of the source data ingested (using source's own conventions).",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slot_uri": "https://w3id.org/biolink/vocab/source_data_version",
-      "owner": "IngestMetadata",
+      "alias": "source_data_version",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ingestMetadataFile__source_access_date",
+      "description": "Date the source data was accessed/downloaded into the system that performed the ingest.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/source_access_date",
+      "alias": "source_access_date",
+      "owner": "IngestMetadataFile",
+      "domain_of": [
+        "IngestMetadataFile"
+      ],
+      "range": "date",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "source_publication_date",
-      "definition_uri": "https://w3id.org/biolink/vocab/source_publication_date",
-      "description": "Date the source data was published",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/source_publication_date",
-      "owner": "IngestMetadata",
-      "domain_of": [
-        "IngestMetadata"
-      ],
-      "range": "date",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "source_download_date",
-      "definition_uri": "https://w3id.org/biolink/vocab/source_download_date",
-      "description": "Date the source data was downloaded",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/source_download_date",
-      "owner": "IngestMetadata",
-      "domain_of": [
-        "IngestMetadata"
-      ],
-      "range": "date",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "source_access_urls",
-      "definition_uri": "https://w3id.org/biolink/vocab/source_access_urls",
-      "description": "URLs from which the source data was accessed",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
+      "name": "ingestMetadataFile__source_access_urls",
+      "description": "URLs where source data was accessed / downloaded / queried to be brought into the system performing the ingest.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slot_uri": "https://w3id.org/biolink/vocab/source_access_urls",
-      "owner": "IngestMetadata",
+      "alias": "source_access_urls",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "uriorcurie",
       "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "source_data_formats",
-      "definition_uri": "https://w3id.org/biolink/vocab/source_data_formats",
-      "description": "Formats of source data files or payloads",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/source_data_formats",
-      "owner": "IngestMetadata",
+      "name": "ingestMetadataFile__source_file_names",
+      "description": "File names from which content used to produce the output KGX graph was retrieved.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/source_file_names",
+      "alias": "source_file_names",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "source_data_files",
-      "definition_uri": "https://w3id.org/biolink/vocab/source_data_files",
-      "description": "List of source file names ingested",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/source_data_files",
-      "owner": "IngestMetadata",
+      "name": "ingestMetadataFile__target_name",
+      "description": "A unique human readable name of the target data set/graph produced by this ingest. e.g. \"2025-08-18 Translator CTD Ingest Graph\"",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/target_name",
+      "alias": "target_name",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
-      ],
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "target_title",
-      "definition_uri": "https://w3id.org/biolink/vocab/target_title",
-      "description": "Human-readable name of the output dataset/graph",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/target_title",
-      "owner": "IngestMetadata",
-      "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "target_type",
-      "definition_uri": "https://w3id.org/biolink/vocab/target_type",
-      "description": "Level of processing applied to the output (e.g. Source-KG, Biolink KG, Normalized KG)",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/target_type",
-      "owner": "IngestMetadata",
-      "domain_of": [
-        "IngestMetadata"
-      ],
-      "range": "string",
-      "required": true,
-      "pattern": "^(Source-KG|Biolink KG|Normalized KG)$",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "target_data_version",
-      "definition_uri": "https://w3id.org/biolink/vocab/target_data_version",
-      "description": "Version of the output dataset/graph",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/target_data_version",
-      "owner": "IngestMetadata",
-      "domain_of": [
-        "IngestMetadata"
-      ],
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "target_creation_date",
-      "definition_uri": "https://w3id.org/biolink/vocab/target_creation_date",
-      "description": "Date the output was created",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
+      "name": "ingestMetadataFile__target_creation_date",
+      "description": "Date the target data set/graph was created.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slot_uri": "https://w3id.org/biolink/vocab/target_creation_date",
-      "owner": "IngestMetadata",
+      "alias": "target_creation_date",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "date",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "target_license",
-      "definition_uri": "https://w3id.org/biolink/vocab/target_license",
-      "description": "License or terms of use for the output",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/target_license",
-      "owner": "IngestMetadata",
+      "name": "ingestMetadataFile__target_format",
+      "description": "Format in which the KGX graph is serialized (e.g., \"KGX-jsonlines\").",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/target_format",
+      "alias": "target_format",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "target_data_format",
-      "definition_uri": "https://w3id.org/biolink/vocab/target_data_format",
-      "description": "Format of the output graph (KGX)",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/target_data_format",
-      "owner": "IngestMetadata",
+      "name": "ingestMetadataFile__target_model",
+      "description": "Name/identifier of the data model used to structure the KGX graph data.",
+      "comments": [
+        "This will be Biolink Model for all Translator graphs - which can be referenced as \"https://w3id.org/biolink/biolink-model\""
+      ],
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/target_model",
+      "alias": "target_model",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "target_data_model",
-      "definition_uri": "https://w3id.org/biolink/vocab/target_data_model",
-      "description": "Data model used (Biolink Model)",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
-      "slot_uri": "https://w3id.org/biolink/vocab/target_data_model",
-      "owner": "IngestMetadata",
+      "name": "ingestMetadataFile__target_model_url",
+      "description": "A URL providing information about the data model used to structure the KGX graph data. e.g. \"https://biolink.github.io/biolink-model/\"",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/target_model_url",
+      "alias": "target_model_url",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
-      "name": "target_data_model_version",
-      "definition_uri": "https://w3id.org/biolink/vocab/target_data_model_version",
-      "description": "Version of the data model used",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
+      "name": "ingestMetadataFile__target_data_model_version",
+      "description": "Version of the target data model used to structure the KGX graph data. e.g. \"4.2.6-rc5\"",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slot_uri": "https://w3id.org/biolink/vocab/target_data_model_version",
-      "owner": "IngestMetadata",
+      "alias": "target_data_model_version",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "node_normalizer",
-      "definition_uri": "https://w3id.org/biolink/vocab/node_normalizer",
-      "description": "Name of the node normalizer used",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
+      "name": "ingestMetadataFile__node_normalizer",
+      "description": "Name/identifier of the algorithm/tool used to perform node normalization on the ingested data. e.g. \"Babel\"",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slot_uri": "https://w3id.org/biolink/vocab/node_normalizer",
-      "owner": "IngestMetadata",
+      "alias": "node_normalizer",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
-      "name": "node_normalizer_version",
-      "definition_uri": "https://w3id.org/biolink/vocab/node_normalizer_version",
-      "description": "Version of the node normalizer used",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
+      "name": "ingestMetadataFile__node_normalizer_version",
+      "description": "Version of the node normalization tool/algorithm.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slot_uri": "https://w3id.org/biolink/vocab/node_normalizer_version",
-      "owner": "IngestMetadata",
+      "alias": "node_normalizer_version",
+      "owner": "IngestMetadataFile",
       "domain_of": [
-        "IngestMetadata"
+        "IngestMetadataFile"
       ],
       "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ingestMetadataFile__node_normalizer_url",
+      "description": "URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/node_normalizer_url",
+      "alias": "node_normalizer_url",
+      "owner": "IngestMetadataFile",
+      "domain_of": [
+        "IngestMetadataFile"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ingestMetadataFile__total_edge_count",
+      "description": "Count of total edges in the graph.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/total_edge_count",
+      "alias": "total_edge_count",
+      "owner": "IngestMetadataFile",
+      "domain_of": [
+        "IngestMetadataFile"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ingestMetadataFile__total_node_count",
+      "description": "Count of total nodes in the graph.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/total_node_count",
+      "alias": "total_node_count",
+      "owner": "IngestMetadataFile",
+      "domain_of": [
+        "IngestMetadataFile"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ingestMetadataFile__orphan_node_count",
+      "description": "Count of nodes in the graph that do not participate in an edge.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/orphan_node_count",
+      "alias": "orphan_node_count",
+      "owner": "IngestMetadataFile",
+      "domain_of": [
+        "IngestMetadataFile"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ingestMetadataFile__node_categories",
+      "description": "List of all Biolink categories used for nodes in the graph.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/node_categories",
+      "alias": "node_categories",
+      "owner": "IngestMetadataFile",
+      "domain_of": [
+        "IngestMetadataFile"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ingestMetadataFile__edge_predicates",
+      "description": "List of all Biolink predicates used in the graph.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/edge_predicates",
+      "alias": "edge_predicates",
+      "owner": "IngestMetadataFile",
+      "domain_of": [
+        "IngestMetadataFile"
+      ],
+      "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     }
   ],
   "classes": [
     {
-      "name": "IngestMetadata",
-      "definition_uri": "https://w3id.org/biolink/vocab/IngestMetadata",
-      "description": "Metadata about a specific data ingest process and its outputs",
-      "from_schema": "https://w3id.org/biolink/ingest-metadata",
+      "name": "IngestMetadataFile",
+      "definition_uri": "https://w3id.org/biolink/vocab/IngestMetadataFile",
+      "description": "Information about a particular ingest perfomred to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.\n",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slots": [
-        "title",
-        "created_by",
-        "creation_date",
-        "ingest_code_url",
-        "ingest_guide_url",
-        "source_infores_id",
-        "source_license",
-        "source_data_version",
-        "source_publication_date",
-        "source_download_date",
-        "source_access_urls",
-        "source_data_formats",
-        "source_data_files",
-        "target_title",
-        "target_type",
-        "target_data_version",
-        "target_creation_date",
-        "target_license",
-        "target_data_format",
-        "target_data_model",
-        "target_data_model_version",
-        "node_normalizer",
-        "node_normalizer_version"
+        "ingestMetadataFile__file_name",
+        "ingestMetadataFile__file_created_by",
+        "ingestMetadataFile__file_creation_date",
+        "ingestMetadataFile__ingest_code_url",
+        "ingestMetadataFile__source_infores_id",
+        "ingestMetadataFile__source_data_version",
+        "ingestMetadataFile__source_access_date",
+        "ingestMetadataFile__source_access_urls",
+        "ingestMetadataFile__source_file_names",
+        "ingestMetadataFile__target_name",
+        "ingestMetadataFile__target_creation_date",
+        "ingestMetadataFile__target_format",
+        "ingestMetadataFile__target_model",
+        "ingestMetadataFile__target_model_url",
+        "ingestMetadataFile__target_data_model_version",
+        "ingestMetadataFile__node_normalizer",
+        "ingestMetadataFile__node_normalizer_version",
+        "ingestMetadataFile__node_normalizer_url",
+        "ingestMetadataFile__total_edge_count",
+        "ingestMetadataFile__total_node_count",
+        "ingestMetadataFile__orphan_node_count",
+        "ingestMetadataFile__node_categories",
+        "ingestMetadataFile__edge_predicates"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/biolink/vocab/IngestMetadata",
+      "attributes": [
+        {
+          "name": "file_name",
+          "description": "An informative, human-readable name for this metadata file/object. e.g. \"2025-08-18 Translator CTD Ingest Metadata\"",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "file_created_by",
+          "description": "The agent(s) (person if hand-authored, software tool if created programmatically) that created this ingest metadata file.",
+          "range": "string",
+          "multivalued": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "file_creation_date",
+          "description": "When this metadata file was created.",
+          "range": "date",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "ingest_code_url",
+          "description": "URL of the specific official release or tagged branch of the ingest code executed to perform the ingest.",
+          "range": "uriorcurie",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "source_infores_id",
+          "description": "Infores identifier of the ingested source.",
+          "range": "uriorcurie",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "source_data_version",
+          "description": "Version of the source data ingested (using source's own conventions).",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "source_access_date",
+          "description": "Date the source data was accessed/downloaded into the system that performed the ingest.",
+          "range": "date",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "source_access_urls",
+          "description": "URLs where source data was accessed / downloaded / queried to be brought into the system performing the ingest.",
+          "range": "uriorcurie",
+          "multivalued": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "source_file_names",
+          "description": "File names from which content used to produce the output KGX graph was retrieved.",
+          "range": "string",
+          "multivalued": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "target_name",
+          "description": "A unique human readable name of the target data set/graph produced by this ingest. e.g. \"2025-08-18 Translator CTD Ingest Graph\"",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "target_creation_date",
+          "description": "Date the target data set/graph was created.",
+          "range": "date",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "target_format",
+          "description": "Format in which the KGX graph is serialized (e.g., \"KGX-jsonlines\").",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "target_model",
+          "description": "Name/identifier of the data model used to structure the KGX graph data.",
+          "comments": [
+            "This will be Biolink Model for all Translator graphs - which can be referenced as \"https://w3id.org/biolink/biolink-model\""
+          ],
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "target_model_url",
+          "description": "A URL providing information about the data model used to structure the KGX graph data. e.g. \"https://biolink.github.io/biolink-model/\"",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "target_data_model_version",
+          "description": "Version of the target data model used to structure the KGX graph data. e.g. \"4.2.6-rc5\"",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "node_normalizer",
+          "description": "Name/identifier of the algorithm/tool used to perform node normalization on the ingested data. e.g. \"Babel\"",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "node_normalizer_version",
+          "description": "Version of the node normalization tool/algorithm.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "node_normalizer_url",
+          "description": "URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "total_edge_count",
+          "description": "Count of total edges in the graph.",
+          "range": "integer",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "total_node_count",
+          "description": "Count of total nodes in the graph.",
+          "range": "integer",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "orphan_node_count",
+          "description": "Count of nodes in the graph that do not participate in an edge.",
+          "range": "integer",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "node_categories",
+          "description": "List of all Biolink categories used for nodes in the graph.",
+          "range": "string",
+          "multivalued": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "edge_predicates",
+          "description": "List of all Biolink predicates used in the graph.",
+          "range": "string",
+          "multivalued": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/biolink/vocab/IngestMetadataFile",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "ingest_metadata.yaml",
-  "source_file_date": "2025-06-24T23:37:15",
-  "source_file_size": 4160,
-  "generation_date": "2025-06-24T23:37:55",
+  "source_file_date": "2025-09-02T10:26:31",
+  "source_file_size": 5540,
+  "generation_date": "2025-09-02T11:41:06",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/ingest_metadata.context.jsonld",

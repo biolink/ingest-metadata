@@ -1,5 +1,4 @@
 {
    "biolink": "https://w3id.org/biolink/vocab/",
-   "linkml": "https://w3id.org/linkml/",
-   "translator": "https://w3id.org/translator/"
+   "linkml": "https://w3id.org/linkml/"
 }
