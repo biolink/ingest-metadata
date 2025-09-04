@@ -22,7 +22,7 @@ imports:
 classes:
   IngestMetadataFile:
     description: >
-      Information about a particular ingest perfomred to produce a KGX graph, describing
+      Information about a particular ingest performed to produce a KGX graph, describing
       source data, ingest process, and details of the resulting KGX graph.
     attributes:
 
@@ -40,13 +40,13 @@ classes:
         range: date
         required: true
 
-    # Information about the code used to execute the ingest (e.g. a specific version/branch of code used)
+    # Information about the code used to execute the ingest task (e.g., a specific version/branch of code used)
       ingest_code_url:
         description: URL of the specific official release or tagged branch of the ingest code executed to perform the ingest.
         range: uriorcurie
         required: true
 
-    # Information about when/how the source was accessed in performing the ingest
+    # Information about when/how the source was accessed in performing the ingest task
       source_infores_id:
         description: Infores identifier of the ingested source.
         range: uriorcurie
@@ -67,7 +67,7 @@ classes:
         range: string
         multivalued: true
 
-    # Inforamtion about the target KGX graph produced by this execution of the source ingest
+    # Information about the target KGX graph produced by this execution of the source ingest task
       target_name:
         description: A unique human readable name of the target data set/graph produced by this ingest. e.g. "2025-08-18 Translator CTD Ingest Graph"
         range: string
@@ -100,10 +100,10 @@ classes:
         description: Version of the node normalization tool/algorithm.
         range: string
       node_normalizer_url:
-        description: URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  "https://github.com/TranslatorSRI/NodeNormalization"
+        description: URL(s) pointing to source code and/or information about the node normalization tool used. e.g.  "https://github.com/TranslatorSRI/NodeNormalization"
         range: string
 
-    # Metrics about the content of the specific KGX graph produced by the ingest
+    # Metrics about the content of the specific KGX graph produced by the ingest task
       total_edge_count:
         description: Count of total edges in the graph.
         range: integer

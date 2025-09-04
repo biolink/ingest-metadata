@@ -8,15 +8,15 @@ Schema hosting relevant metadata for a data transformation conformant to the Bio
 
 ## Repository Structure
 
-* [examples/](examples/) - example data
-* [project/](project/) - project files (do not edit these)
-* [src/](src/) - source files (edit these)
+* [examples/](./examples) - example data
+* [project/](./project) - project files (do not edit these)
+* [src/](./src) - source files (edit these)
   * [ingest_metadata](src/ingest_metadata)
     * [schema](src/ingest_metadata/schema) -- LinkML schema
       (edit this)
     * [datamodel](src/ingest_metadata/datamodel) -- generated
       Python datamodel
-* [tests/](tests/) - Python tests
+* [tests/](./tests) - Python tests
 
 ## Developer Documentation
 
@@ -55,8 +55,8 @@ make test
 
 ### Development Commands
 
-To run commands you may use good old make or the command runner [just](https://github.com/casey/just/) which is a better choice on Windows.
-Use the `make` command or `duty` commands to generate project artefacts:
+To run the commands, you may use good old make or the command runner [just](https://github.com/casey/just/) which is a better choice on Windows.
+Use the `make` command or `duty` commands to generate project artifacts:
 * `make help` or `just --list`: list all pre-defined tasks
 * `make all` or `just all`: make everything
 * `make deploy` or `just deploy`: deploys site
