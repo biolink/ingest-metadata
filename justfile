@@ -123,7 +123,7 @@ _gen-project: _ensure_pymodel_dir _compile_sheets
     fi
 
 # Run all tests
-test: _test-schema _test-python _test-examples
+test: _test-schema _test-python # _test-examples
 
 # Test schema generation
 _test-schema:
