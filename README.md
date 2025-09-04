@@ -50,7 +50,7 @@ uv sync
 
 3. Run tests:
 ```bash
-make test
+make test  # or use the  `just test` command
 ```
 
 ### Development Commands
