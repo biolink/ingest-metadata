@@ -1,0 +1,15 @@
+# Example for a valid IngestMetadata object
+---
+title: "Example Ingest Metadata"
+created_by: 
+  - "Data Team"
+creation_date: "2023-01-01"
+ingest_code_url: "https://github.com/example/example-ingest"
+source_infores_id: "infores:example-source"
+source_data_version: "1.0.0"
+target_title: "Example Output Dataset"
+target_type: "Source-KG"
+target_data_version: "1.0.0"
+target_creation_date: "2023-01-01"
+target_license: "CC0"
+target_data_format: "KGX"

@@ -8,8 +8,8 @@
 
 # Note: makefile variables should not be quoted, as makefile handles quoting differently than bash
 LINKML_SCHEMA_NAME=ingest_metadata
-LINKML_SCHEMA_AUTHOR=Matt Brush <matt@tislab.org>
-LINKML_SCHEMA_DESCRIPTION=Schema hosting relevant metadata for a data transformation conformant to the Biolink Model
+LINKML_SCHEMA_AUTHOR="Matt Brush <matt@tislab.org>"
+LINKML_SCHEMA_DESCRIPTION="Schema hosting relevant metadata for a data transformation conformant to the Biolink Model"
 LINKML_SCHEMA_SOURCE_PATH=src/ingest_metadata/schema/ingest_metadata.yaml
 
 ###### linkml generator variables, used by makefile
