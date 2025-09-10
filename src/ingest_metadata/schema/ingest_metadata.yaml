@@ -22,7 +22,7 @@ imports:
 classes:
   IngestMetadataFile:
     description: >
-      Information about a particular ingest perfomred to produce a KGX graph, describing
+      Information about a particular ingest performed to produce a KGX graph, describing
       source data, ingest process, and details of the resulting KGX graph.
     attributes:
 
@@ -72,7 +72,7 @@ classes:
         range: string
         multivalued: true
 
-    # Inforamtion about the target KGX graph produced by this execution of the source ingest
+    # Information about the target KGX graph produced by this execution of the source ingest
       target_name:
         description: A unique human readable name of the target data set/graph produced by this ingest. e.g. "2025-08-18 Translator CTD Ingest Graph"
         range: string
@@ -80,6 +80,14 @@ classes:
       target_creation_date:
         description: Date the target data set/graph was created.
         range: date
+        required: true
+      target_data_url:
+        description: URL where the dataset/graph can be retrieved
+        range: uriorcurie
+        required: true
+      target_data_version:
+        description: version of the target dataset/graph.
+        range: string
         required: true
       target_format:
         description: Format in which the KGX graph is serialized (e.g., "KGX-jsonlines").
@@ -94,7 +102,7 @@ classes:
       target_model_url:
         description: A URL providing information about the data model used to structure the KGX graph data. e.g. "https://biolink.github.io/biolink-model/"
         range: string
-      target_data_model_version:
+      target_model_version:
         description: Version of the target data model used to structure the KGX graph data. e.g. "4.2.6-rc5"
         range: string
         required: true
@@ -105,7 +113,7 @@ classes:
         description: Version of the node normalization tool/algorithm.
         range: string
       node_normalizer_url:
-        description: URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  "https://github.com/TranslatorSRI/NodeNormalization"
+        description: URL(s) pointing to source code and/or information about the node normalization tool used. e.g.  "https://github.com/TranslatorSRI/NodeNormalization"
         range: string
 
     # Metrics about the content of the specific KGX graph produced by the ingest
