@@ -45,15 +45,20 @@ classes:
         description: URL of the specific official release or tagged branch of the ingest code executed to perform the ingest.
         range: uriorcurie
         required: true
-
+      ingest_code_version:
+        description: The version of the ingest code executed to perform the ingest.
+        range: string
+        required: true
+        
     # Information about when/how the source was accessed in performing the ingest
       source_infores_id:
         description: Infores identifier of the ingested source.
         range: uriorcurie
         required: true
       source_data_version:
-        description: Version of the source data ingested (using source's own conventions).
+        description: Version of the source data ingested - using source's own conventions, or make one up  (e.g. use the date) if not provided by source.
         range: string
+        required: true
       source_access_date:
         description: Date the source data was accessed/downloaded into the system that performed the ingest.
         range: date
