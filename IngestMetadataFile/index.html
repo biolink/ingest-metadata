@@ -231,6 +231,8 @@
 
       IngestMetadataFile : ingest_code_url
 
+      IngestMetadataFile : ingest_code_version
+
       IngestMetadataFile : node_categories
 
       IngestMetadataFile : node_normalizer
@@ -306,6 +308,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../ingest_code_version/">ingest_code_version</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>The version of the ingest code executed to perform the ingest</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../source_infores_id/">source_infores_id</a></td>
 <td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>Infores identifier of the ingested source</td>
@@ -313,8 +321,8 @@
 </tr>
 <tr>
 <td><a href="../source_data_version/">source_data_version</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>Version of the source data ingested (using source's own conventions)</td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Version of the source data ingested - using source's own conventions, or make...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -495,6 +503,15 @@ attributes:
     - IngestMetadataFile
     range: uriorcurie
     required: true
+  ingest_code_version:
+    name: ingest_code_version
+    description: The version of the ingest code executed to perform the ingest.
+    from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
+    rank: 1000
+    domain_of:
+    - IngestMetadataFile
+    range: string
+    required: true
   source_infores_id:
     name: source_infores_id
     description: Infores identifier of the ingested source.
@@ -506,12 +523,14 @@ attributes:
     required: true
   source_data_version:
     name: source_data_version
-    description: Version of the source data ingested (using source's own conventions).
+    description: Version of the source data ingested - using source's own conventions,
+      or make one up  (e.g. use the date) if not provided by source.
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
     - IngestMetadataFile
     range: string
+    required: true
   source_access_date:
     name: source_access_date
     description: Date the source data was accessed/downloaded into the system that
@@ -729,6 +748,17 @@ attributes:
     - IngestMetadataFile
     range: uriorcurie
     required: true
+  ingest_code_version:
+    name: ingest_code_version
+    description: The version of the ingest code executed to perform the ingest.
+    from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
+    rank: 1000
+    alias: ingest_code_version
+    owner: IngestMetadataFile
+    domain_of:
+    - IngestMetadataFile
+    range: string
+    required: true
   source_infores_id:
     name: source_infores_id
     description: Infores identifier of the ingested source.
@@ -742,7 +772,8 @@ attributes:
     required: true
   source_data_version:
     name: source_data_version
-    description: Version of the source data ingested (using source's own conventions).
+    description: Version of the source data ingested - using source's own conventions,
+      or make one up  (e.g. use the date) if not provided by source.
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: source_data_version
@@ -750,6 +781,7 @@ attributes:
     domain_of:
     - IngestMetadataFile
     range: string
+    required: true
   source_access_date:
     name: source_access_date
     description: Date the source data was accessed/downloaded into the system that
