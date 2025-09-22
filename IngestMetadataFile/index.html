@@ -215,7 +215,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-ingestmetadatafile">Class: IngestMetadataFile</h1>
-<p><em>Information about a particular ingest perfomred to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.</em></p>
+<p><em>Information about a particular ingest performed to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.</em></p>
 <p>__</p>
 <p>URI: <a href="https://w3id.org/biolink/vocab/IngestMetadataFile">biolink:IngestMetadataFile</a></p>
 <div class="mermaid"> classDiagram
@@ -394,7 +394,7 @@
 <tr>
 <td><a href="../node_normalizer_url/">node_normalizer_url</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>URL(s) pointing to source code and/or information about the node normaliztion...</td>
+<td>URL(s) pointing to source code and/or information about the node normalizatio...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -458,7 +458,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: IngestMetadataFile
-description: 'Information about a particular ingest perfomred to produce a KGX graph,
+description: 'Information about a particular ingest performed to produce a KGX graph,
   describing source data, ingest process, and details of the resulting KGX graph.
 
   '
@@ -466,8 +466,10 @@ from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
 attributes:
   file_name:
     name: file_name
-    description: An informative, human-readable name for this metadata file/object.
+    description: 'An informative, human-readable name for this metadata file/object.
       e.g. "2025-08-18 Translator CTD Ingest Metadata"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -476,8 +478,10 @@ attributes:
     required: true
   file_created_by:
     name: file_created_by
-    description: The agent(s) (person if hand-authored, software tool if created programmatically)
-      that created this ingest metadata file.
+    description: 'The agent(s) (person if hand-authored, software tool if created
+      programmatically) that created this ingest metadata file.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -495,8 +499,10 @@ attributes:
     required: true
   ingest_code_url:
     name: ingest_code_url
-    description: URL of the specific official release or tagged branch of the ingest
+    description: 'URL of the specific official release or tagged branch of the ingest
       code executed to perform the ingest.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -505,7 +511,9 @@ attributes:
     required: true
   ingest_code_version:
     name: ingest_code_version
-    description: The version of the ingest code executed to perform the ingest.
+    description: 'The version of the ingest code executed to perform the ingest.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -523,8 +531,10 @@ attributes:
     required: true
   source_data_version:
     name: source_data_version
-    description: Version of the source data ingested - using source's own conventions,
-      or make one up  (e.g. use the date) if not provided by source.
+    description: 'Version of the source data ingested - using source''s own conventions,
+      or make one up (e.g. use the date) if not provided by source.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -533,8 +543,10 @@ attributes:
     required: true
   source_access_date:
     name: source_access_date
-    description: Date the source data was accessed/downloaded into the system that
+    description: 'Date the source data was accessed/downloaded into the system that
       performed the ingest.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -543,8 +555,10 @@ attributes:
     required: true
   source_access_urls:
     name: source_access_urls
-    description: URLs where source data was accessed / downloaded / queried to be
+    description: 'URLs where source data was accessed / downloaded / queried to be
       brought into the system performing the ingest.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -553,8 +567,10 @@ attributes:
     multivalued: true
   source_file_names:
     name: source_file_names
-    description: File names from which content used to produce the output KGX graph
+    description: 'File names from which content used to produce the output KGX graph
       was retrieved.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -563,8 +579,10 @@ attributes:
     multivalued: true
   target_name:
     name: target_name
-    description: A unique human readable name of the target data set/graph produced
+    description: 'A unique human readable name of the target data set/graph produced
       by this ingest. e.g. "2025-08-18 Translator CTD Ingest Graph"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -582,7 +600,9 @@ attributes:
     required: true
   target_format:
     name: target_format
-    description: Format in which the KGX graph is serialized (e.g., "KGX-jsonlines").
+    description: 'Format in which the KGX graph is serialized (e.g., "KGX-jsonlines").
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -591,8 +611,10 @@ attributes:
     required: true
   target_model:
     name: target_model
-    description: Name/identifier of the data model used to structure the KGX graph
+    description: 'Name/identifier of the data model used to structure the KGX graph
       data.
+
+      '
     comments:
     - This will be Biolink Model for all Translator graphs - which can be referenced
       as "https://w3id.org/biolink/biolink-model"
@@ -604,8 +626,10 @@ attributes:
     required: true
   target_model_url:
     name: target_model_url
-    description: A URL providing information about the data model used to structure
+    description: 'A URL providing information about the data model used to structure
       the KGX graph data. e.g. "https://biolink.github.io/biolink-model/"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -613,8 +637,10 @@ attributes:
     range: string
   target_data_model_version:
     name: target_data_model_version
-    description: Version of the target data model used to structure the KGX graph
+    description: 'Version of the target data model used to structure the KGX graph
       data. e.g. "4.2.6-rc5"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -623,8 +649,10 @@ attributes:
     required: true
   node_normalizer:
     name: node_normalizer
-    description: Name/identifier of the algorithm/tool used to perform node normalization
+    description: 'Name/identifier of the algorithm/tool used to perform node normalization
       on the ingested data. e.g. "Babel"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -640,8 +668,10 @@ attributes:
     range: string
   node_normalizer_url:
     name: node_normalizer_url
-    description: URL(s) pointing to source code and/or information about the node
-      normaliztion tool used. e.g.  "https://github.com/TranslatorSRI/NodeNormalization"
+    description: 'URL(s) pointing to source code and/or information about the node
+      normalization tool used. e.g. "https://github.com/TranslatorSRI/NodeNormalization"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -665,7 +695,9 @@ attributes:
     range: integer
   orphan_node_count:
     name: orphan_node_count
-    description: Count of nodes in the graph that do not participate in an edge.
+    description: 'Count of nodes in the graph that do not participate in an edge.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     domain_of:
@@ -695,7 +727,7 @@ attributes:
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: IngestMetadataFile
-description: 'Information about a particular ingest perfomred to produce a KGX graph,
+description: 'Information about a particular ingest performed to produce a KGX graph,
   describing source data, ingest process, and details of the resulting KGX graph.
 
   '
@@ -703,8 +735,10 @@ from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
 attributes:
   file_name:
     name: file_name
-    description: An informative, human-readable name for this metadata file/object.
+    description: 'An informative, human-readable name for this metadata file/object.
       e.g. "2025-08-18 Translator CTD Ingest Metadata"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: file_name
@@ -715,8 +749,10 @@ attributes:
     required: true
   file_created_by:
     name: file_created_by
-    description: The agent(s) (person if hand-authored, software tool if created programmatically)
-      that created this ingest metadata file.
+    description: 'The agent(s) (person if hand-authored, software tool if created
+      programmatically) that created this ingest metadata file.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: file_created_by
@@ -738,8 +774,10 @@ attributes:
     required: true
   ingest_code_url:
     name: ingest_code_url
-    description: URL of the specific official release or tagged branch of the ingest
+    description: 'URL of the specific official release or tagged branch of the ingest
       code executed to perform the ingest.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: ingest_code_url
@@ -750,7 +788,9 @@ attributes:
     required: true
   ingest_code_version:
     name: ingest_code_version
-    description: The version of the ingest code executed to perform the ingest.
+    description: 'The version of the ingest code executed to perform the ingest.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: ingest_code_version
@@ -772,8 +812,10 @@ attributes:
     required: true
   source_data_version:
     name: source_data_version
-    description: Version of the source data ingested - using source's own conventions,
-      or make one up  (e.g. use the date) if not provided by source.
+    description: 'Version of the source data ingested - using source''s own conventions,
+      or make one up (e.g. use the date) if not provided by source.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: source_data_version
@@ -784,8 +826,10 @@ attributes:
     required: true
   source_access_date:
     name: source_access_date
-    description: Date the source data was accessed/downloaded into the system that
+    description: 'Date the source data was accessed/downloaded into the system that
       performed the ingest.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: source_access_date
@@ -796,8 +840,10 @@ attributes:
     required: true
   source_access_urls:
     name: source_access_urls
-    description: URLs where source data was accessed / downloaded / queried to be
+    description: 'URLs where source data was accessed / downloaded / queried to be
       brought into the system performing the ingest.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: source_access_urls
@@ -808,8 +854,10 @@ attributes:
     multivalued: true
   source_file_names:
     name: source_file_names
-    description: File names from which content used to produce the output KGX graph
+    description: 'File names from which content used to produce the output KGX graph
       was retrieved.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: source_file_names
@@ -820,8 +868,10 @@ attributes:
     multivalued: true
   target_name:
     name: target_name
-    description: A unique human readable name of the target data set/graph produced
+    description: 'A unique human readable name of the target data set/graph produced
       by this ingest. e.g. "2025-08-18 Translator CTD Ingest Graph"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: target_name
@@ -843,7 +893,9 @@ attributes:
     required: true
   target_format:
     name: target_format
-    description: Format in which the KGX graph is serialized (e.g., "KGX-jsonlines").
+    description: 'Format in which the KGX graph is serialized (e.g., "KGX-jsonlines").
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: target_format
@@ -854,8 +906,10 @@ attributes:
     required: true
   target_model:
     name: target_model
-    description: Name/identifier of the data model used to structure the KGX graph
+    description: 'Name/identifier of the data model used to structure the KGX graph
       data.
+
+      '
     comments:
     - This will be Biolink Model for all Translator graphs - which can be referenced
       as "https://w3id.org/biolink/biolink-model"
@@ -869,8 +923,10 @@ attributes:
     required: true
   target_model_url:
     name: target_model_url
-    description: A URL providing information about the data model used to structure
+    description: 'A URL providing information about the data model used to structure
       the KGX graph data. e.g. "https://biolink.github.io/biolink-model/"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: target_model_url
@@ -880,8 +936,10 @@ attributes:
     range: string
   target_data_model_version:
     name: target_data_model_version
-    description: Version of the target data model used to structure the KGX graph
+    description: 'Version of the target data model used to structure the KGX graph
       data. e.g. "4.2.6-rc5"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: target_data_model_version
@@ -892,8 +950,10 @@ attributes:
     required: true
   node_normalizer:
     name: node_normalizer
-    description: Name/identifier of the algorithm/tool used to perform node normalization
+    description: 'Name/identifier of the algorithm/tool used to perform node normalization
       on the ingested data. e.g. "Babel"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: node_normalizer
@@ -913,8 +973,10 @@ attributes:
     range: string
   node_normalizer_url:
     name: node_normalizer_url
-    description: URL(s) pointing to source code and/or information about the node
-      normaliztion tool used. e.g.  "https://github.com/TranslatorSRI/NodeNormalization"
+    description: 'URL(s) pointing to source code and/or information about the node
+      normalization tool used. e.g. "https://github.com/TranslatorSRI/NodeNormalization"
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: node_normalizer_url
@@ -944,7 +1006,9 @@ attributes:
     range: integer
   orphan_node_count:
     name: orphan_node_count
-    description: Count of nodes in the graph that do not participate in an edge.
+    description: 'Count of nodes in the graph that do not participate in an edge.
+
+      '
     from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
     rank: 1000
     alias: orphan_node_count
