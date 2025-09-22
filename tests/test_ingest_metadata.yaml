@@ -3,6 +3,7 @@ file_created_by:
   - "Test Creator"
 file_creation_date: "2023-01-01"
 ingest_code_url: "https://github.com/example/test-ingest"
+ingest_code_version: "1.0.0"
 source_infores_id: "infores:test-source"
 source_data_version: "1.0.0"
 source_access_date: "2023-01-01"
