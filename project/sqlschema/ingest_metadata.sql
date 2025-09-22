@@ -5,7 +5,7 @@
 --     * Slot: ingest_code_url Description: URL of the specific official release or tagged branch of the ingest code executed to perform the ingest.
 --     * Slot: ingest_code_version Description: The version of the ingest code executed to perform the ingest.
 --     * Slot: source_infores_id Description: Infores identifier of the ingested source.
---     * Slot: source_data_version Description: Version of the source data ingested - using source's own conventions, or make one up  (e.g. use the date) if not provided by source.
+--     * Slot: source_data_version Description: Version of the source data ingested - using source's own conventions, or make one up (e.g. use the date) if not provided by source.
 --     * Slot: source_access_date Description: Date the source data was accessed/downloaded into the system that performed the ingest.
 --     * Slot: target_name Description: A unique human readable name of the target data set/graph produced by this ingest. e.g. "2025-08-18 Translator CTD Ingest Graph"
 --     * Slot: target_creation_date Description: Date the target data set/graph was created.
@@ -15,7 +15,7 @@
 --     * Slot: target_data_model_version Description: Version of the target data model used to structure the KGX graph data. e.g. "4.2.6-rc5"
 --     * Slot: node_normalizer Description: Name/identifier of the algorithm/tool used to perform node normalization on the ingested data. e.g. "Babel"
 --     * Slot: node_normalizer_version Description: Version of the node normalization tool/algorithm.
---     * Slot: node_normalizer_url Description: URL(s) pointing to source code and/or information about the node normalization tool used. e.g.  "https://github.com/TranslatorSRI/NodeNormalization"
+--     * Slot: node_normalizer_url Description: URL(s) pointing to source code and/or information about the node normalization tool used. e.g. "https://github.com/TranslatorSRI/NodeNormalization"
 --     * Slot: total_edge_count Description: Count of total edges in the graph.
 --     * Slot: total_node_count Description: Count of total nodes in the graph.
 --     * Slot: orphan_node_count Description: Count of nodes in the graph that do not participate in an edge.
@@ -75,7 +75,7 @@ CREATE TABLE "IngestMetadataFile_source_file_names" (
 	source_file_names TEXT,
 	PRIMARY KEY ("IngestMetadataFile_id", source_file_names),
 	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
-);CREATE INDEX "ix_IngestMetadataFile_source_file_names_IngestMetadataFile_id" ON "IngestMetadataFile_source_file_names" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_source_file_names_source_file_names" ON "IngestMetadataFile_source_file_names" (source_file_names);
+);CREATE INDEX "ix_IngestMetadataFile_source_file_names_source_file_names" ON "IngestMetadataFile_source_file_names" (source_file_names);CREATE INDEX "ix_IngestMetadataFile_source_file_names_IngestMetadataFile_id" ON "IngestMetadataFile_source_file_names" ("IngestMetadataFile_id");
 CREATE TABLE "IngestMetadataFile_node_categories" (
 	"IngestMetadataFile_id" INTEGER,
 	node_categories TEXT,

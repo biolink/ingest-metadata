@@ -1,5 +1,5 @@
 # Auto generated from ingest_metadata.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-22T11:00:29
+# Generation date: 2025-09-22T13:48:43
 # Schema: kgx_ingest_metadata_schema
 #
 # id: https://w3id.org/biolink/kgx/ingest-metadata-schema
