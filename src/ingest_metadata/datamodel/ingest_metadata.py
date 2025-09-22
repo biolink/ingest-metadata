@@ -1,5 +1,5 @@
 # Auto generated from ingest_metadata.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-02T18:46:58
+# Generation date: 2025-09-22T13:48:43
 # Schema: kgx_ingest_metadata_schema
 #
 # id: https://w3id.org/biolink/kgx/ingest-metadata-schema
@@ -77,7 +77,7 @@ DEFAULT_ = BIOLINK
 @dataclass(repr=False)
 class IngestMetadataFile(YAMLRoot):
     """
-    Information about a particular ingest perfomred to produce a KGX graph, describing source data, ingest process,
+    Information about a particular ingest performed to produce a KGX graph, describing source data, ingest process,
     and details of the resulting KGX graph.
     """
     _inherited_slots: ClassVar[list[str]] = []
@@ -90,7 +90,9 @@ class IngestMetadataFile(YAMLRoot):
     file_name: str = None
     file_creation_date: Union[str, XSDDate] = None
     ingest_code_url: Union[str, URIorCURIE] = None
+    ingest_code_version: str = None
     source_infores_id: Union[str, URIorCURIE] = None
+    source_data_version: str = None
     source_access_date: Union[str, XSDDate] = None
     target_name: str = None
     target_creation_date: Union[str, XSDDate] = None
@@ -98,7 +100,6 @@ class IngestMetadataFile(YAMLRoot):
     target_model: str = None
     target_data_model_version: str = None
     file_created_by: Optional[Union[str, list[str]]] = empty_list()
-    source_data_version: Optional[str] = None
     source_access_urls: Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]] = empty_list()
     source_file_names: Optional[Union[str, list[str]]] = empty_list()
     target_model_url: Optional[str] = None
@@ -127,10 +128,20 @@ class IngestMetadataFile(YAMLRoot):
         if not isinstance(self.ingest_code_url, URIorCURIE):
             self.ingest_code_url = URIorCURIE(self.ingest_code_url)
 
+        if self._is_empty(self.ingest_code_version):
+            self.MissingRequiredField("ingest_code_version")
+        if not isinstance(self.ingest_code_version, str):
+            self.ingest_code_version = str(self.ingest_code_version)
+
         if self._is_empty(self.source_infores_id):
             self.MissingRequiredField("source_infores_id")
         if not isinstance(self.source_infores_id, URIorCURIE):
             self.source_infores_id = URIorCURIE(self.source_infores_id)
+
+        if self._is_empty(self.source_data_version):
+            self.MissingRequiredField("source_data_version")
+        if not isinstance(self.source_data_version, str):
+            self.source_data_version = str(self.source_data_version)
 
         if self._is_empty(self.source_access_date):
             self.MissingRequiredField("source_access_date")
@@ -165,9 +176,6 @@ class IngestMetadataFile(YAMLRoot):
         if not isinstance(self.file_created_by, list):
             self.file_created_by = [self.file_created_by] if self.file_created_by is not None else []
         self.file_created_by = [v if isinstance(v, str) else str(v) for v in self.file_created_by]
-
-        if self.source_data_version is not None and not isinstance(self.source_data_version, str):
-            self.source_data_version = str(self.source_data_version)
 
         if not isinstance(self.source_access_urls, list):
             self.source_access_urls = [self.source_access_urls] if self.source_access_urls is not None else []
@@ -228,11 +236,14 @@ slots.ingestMetadataFile__file_creation_date = Slot(uri=BIOLINK.file_creation_da
 slots.ingestMetadataFile__ingest_code_url = Slot(uri=BIOLINK.ingest_code_url, name="ingestMetadataFile__ingest_code_url", curie=BIOLINK.curie('ingest_code_url'),
                    model_uri=BIOLINK.ingestMetadataFile__ingest_code_url, domain=None, range=Union[str, URIorCURIE])
 
+slots.ingestMetadataFile__ingest_code_version = Slot(uri=BIOLINK.ingest_code_version, name="ingestMetadataFile__ingest_code_version", curie=BIOLINK.curie('ingest_code_version'),
+                   model_uri=BIOLINK.ingestMetadataFile__ingest_code_version, domain=None, range=str)
+
 slots.ingestMetadataFile__source_infores_id = Slot(uri=BIOLINK.source_infores_id, name="ingestMetadataFile__source_infores_id", curie=BIOLINK.curie('source_infores_id'),
                    model_uri=BIOLINK.ingestMetadataFile__source_infores_id, domain=None, range=Union[str, URIorCURIE])
 
 slots.ingestMetadataFile__source_data_version = Slot(uri=BIOLINK.source_data_version, name="ingestMetadataFile__source_data_version", curie=BIOLINK.curie('source_data_version'),
-                   model_uri=BIOLINK.ingestMetadataFile__source_data_version, domain=None, range=Optional[str])
+                   model_uri=BIOLINK.ingestMetadataFile__source_data_version, domain=None, range=str)
 
 slots.ingestMetadataFile__source_access_date = Slot(uri=BIOLINK.source_access_date, name="ingestMetadataFile__source_access_date", curie=BIOLINK.curie('source_access_date'),
                    model_uri=BIOLINK.ingestMetadataFile__source_access_date, domain=None, range=Union[str, XSDDate])

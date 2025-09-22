@@ -5,113 +5,147 @@
 
 biolink:IngestMetadataFile a sh:NodeShape ;
     sh:closed true ;
-    sh:description """Information about a particular ingest perfomred to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.
+    sh:description """Information about a particular ingest performed to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.
 """ ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Version of the source data ingested (using source's own conventions)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path biolink:source_data_version ],
-        [ sh:datatype xsd:string ;
-            sh:description "Version of the node normalization tool/algorithm." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path biolink:node_normalizer_version ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Count of total nodes in the graph." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 19 ;
-            sh:path biolink:total_node_count ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Count of nodes in the graph that do not participate in an edge." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 20 ;
-            sh:path biolink:orphan_node_count ],
-        [ sh:datatype xsd:string ;
-            sh:description "List of all Biolink categories used for nodes in the graph." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 21 ;
-            sh:path biolink:node_categories ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Infores identifier of the ingested source." ;
+            sh:description """Format in which the KGX graph is serialized (e.g., "KGX-jsonlines").
+""" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path biolink:source_infores_id ],
+            sh:order 12 ;
+            sh:path biolink:target_format ],
         [ sh:datatype xsd:anyURI ;
-            sh:description "URL of the specific official release or tagged branch of the ingest code executed to perform the ingest." ;
+            sh:description """URL of the specific official release or tagged branch of the ingest code executed to perform the ingest.
+""" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path biolink:ingest_code_url ],
-        [ sh:datatype xsd:string ;
-            sh:description "List of all Biolink predicates used in the graph." ;
+        [ sh:datatype xsd:integer ;
+            sh:description "Count of total nodes in the graph." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 22 ;
-            sh:path biolink:edge_predicates ],
+            sh:order 20 ;
+            sh:path biolink:total_node_count ],
         [ sh:datatype xsd:string ;
-            sh:description "URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"" ;
+            sh:description "Version of the node normalization tool/algorithm." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 17 ;
-            sh:path biolink:node_normalizer_url ],
+            sh:path biolink:node_normalizer_version ],
         [ sh:datatype xsd:string ;
-            sh:description "Name/identifier of the algorithm/tool used to perform node normalization on the ingested data. e.g. \"Babel\"" ;
+            sh:description """Name/identifier of the algorithm/tool used to perform node normalization on the ingested data. e.g. "Babel"
+""" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 15 ;
+            sh:order 16 ;
             sh:path biolink:node_normalizer ],
         [ sh:datatype xsd:string ;
-            sh:description "Format in which the KGX graph is serialized (e.g., \"KGX-jsonlines\")." ;
+            sh:description "List of all Biolink predicates used in the graph." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 23 ;
+            sh:path biolink:edge_predicates ],
+        [ sh:datatype xsd:string ;
+            sh:description """File names from which content used to produce the output KGX graph was retrieved.
+""" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path biolink:source_file_names ],
+        [ sh:datatype xsd:integer ;
+            sh:description """Count of nodes in the graph that do not participate in an edge.
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 21 ;
+            sh:path biolink:orphan_node_count ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Infores identifier of the ingested source." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path biolink:source_infores_id ],
+        [ sh:datatype xsd:string ;
+            sh:description """The version of the ingest code executed to perform the ingest.
+""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path biolink:ingest_code_version ],
+        [ sh:datatype xsd:date ;
+            sh:description """Date the source data was accessed/downloaded into the system that performed the ingest.
+""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path biolink:source_access_date ],
+        [ sh:datatype xsd:string ;
+            sh:description """URL(s) pointing to source code and/or information about the node normalization tool used. e.g. "https://github.com/TranslatorSRI/NodeNormalization"
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 18 ;
+            sh:path biolink:node_normalizer_url ],
+        [ sh:datatype xsd:string ;
+            sh:description """Version of the target data model used to structure the KGX graph data. e.g. "4.2.6-rc5"
+""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path biolink:target_data_model_version ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date the target data set/graph was created." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 11 ;
-            sh:path biolink:target_format ],
+            sh:path biolink:target_creation_date ],
         [ sh:datatype xsd:string ;
-            sh:description "Version of the target data model used to structure the KGX graph data. e.g. \"4.2.6-rc5\"" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:description "List of all Biolink categories used for nodes in the graph." ;
             sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path biolink:target_data_model_version ],
+            sh:order 22 ;
+            sh:path biolink:node_categories ],
         [ sh:datatype xsd:string ;
-            sh:description "A URL providing information about the data model used to structure the KGX graph data. e.g. \"https://biolink.github.io/biolink-model/\"" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path biolink:target_model_url ],
-        [ sh:datatype xsd:string ;
-            sh:description "The agent(s) (person if hand-authored, software tool if created programmatically) that created this ingest metadata file." ;
+            sh:description """The agent(s) (person if hand-authored, software tool if created programmatically) that created this ingest metadata file.
+""" ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path biolink:file_created_by ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URLs where source data was accessed / downloaded / queried to be brought into the system performing the ingest." ;
+        [ sh:datatype xsd:string ;
+            sh:description """Name/identifier of the data model used to structure the KGX graph data.
+""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
+            sh:order 13 ;
+            sh:path biolink:target_model ],
+        [ sh:datatype xsd:string ;
+            sh:description """Version of the source data ingested - using source's own conventions, or make one up (e.g. use the date) if not provided by source.
+""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path biolink:source_data_version ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description """URLs where source data was accessed / downloaded / queried to be brought into the system performing the ingest.
+""" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
             sh:path biolink:source_access_urls ],
         [ sh:datatype xsd:string ;
-            sh:description "A unique human readable name of the target data set/graph produced by this ingest. e.g. \"2025-08-18 Translator CTD Ingest Graph\"" ;
+            sh:description """A URL providing information about the data model used to structure the KGX graph data. e.g. "https://biolink.github.io/biolink-model/"
+""" ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path biolink:target_name ],
-        [ sh:datatype xsd:string ;
-            sh:description "An informative, human-readable name for this metadata file/object. e.g. \"2025-08-18 Translator CTD Ingest Metadata\"" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path biolink:file_name ],
+            sh:order 14 ;
+            sh:path biolink:target_model_url ],
         [ sh:datatype xsd:date ;
             sh:description "When this metadata file was created." ;
             sh:maxCount 1 ;
@@ -119,37 +153,27 @@ biolink:IngestMetadataFile a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path biolink:file_creation_date ],
-        [ sh:datatype xsd:string ;
-            sh:description "Name/identifier of the data model used to structure the KGX graph data." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path biolink:target_model ],
         [ sh:datatype xsd:integer ;
             sh:description "Count of total edges in the graph." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 18 ;
+            sh:order 19 ;
             sh:path biolink:total_edge_count ],
-        [ sh:datatype xsd:date ;
-            sh:description "Date the source data was accessed/downloaded into the system that performed the ingest." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path biolink:source_access_date ],
         [ sh:datatype xsd:string ;
-            sh:description "File names from which content used to produce the output KGX graph was retrieved." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path biolink:source_file_names ],
-        [ sh:datatype xsd:date ;
-            sh:description "Date the target data set/graph was created." ;
+            sh:description """A unique human readable name of the target data set/graph produced by this ingest. e.g. "2025-08-18 Translator CTD Ingest Graph"
+""" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 10 ;
-            sh:path biolink:target_creation_date ] ;
+            sh:path biolink:target_name ],
+        [ sh:datatype xsd:string ;
+            sh:description """An informative, human-readable name for this metadata file/object. e.g. "2025-08-18 Translator CTD Ingest Metadata"
+""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path biolink:file_name ] ;
     sh:targetClass biolink:IngestMetadataFile .
 
