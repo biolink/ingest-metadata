@@ -391,6 +391,20 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "ingestMetadataFile__ingest_code_version",
+      "description": "The version of the ingest code executed to perform the ingest.",
+      "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
+      "slot_uri": "https://w3id.org/biolink/vocab/ingest_code_version",
+      "alias": "ingest_code_version",
+      "owner": "IngestMetadataFile",
+      "domain_of": [
+        "IngestMetadataFile"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "ingestMetadataFile__source_infores_id",
       "description": "Infores identifier of the ingested source.",
       "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
@@ -406,7 +420,7 @@
     },
     {
       "name": "ingestMetadataFile__source_data_version",
-      "description": "Version of the source data ingested (using source's own conventions).",
+      "description": "Version of the source data ingested - using source's own conventions, or make one up  (e.g. use the date) if not provided by source.",
       "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slot_uri": "https://w3id.org/biolink/vocab/source_data_version",
       "alias": "source_data_version",
@@ -415,6 +429,7 @@
         "IngestMetadataFile"
       ],
       "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -573,7 +588,7 @@
     },
     {
       "name": "ingestMetadataFile__node_normalizer_url",
-      "description": "URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"",
+      "description": "URL(s) pointing to source code and/or information about the node normalization tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"",
       "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slot_uri": "https://w3id.org/biolink/vocab/node_normalizer_url",
       "alias": "node_normalizer_url",
@@ -656,13 +671,14 @@
     {
       "name": "IngestMetadataFile",
       "definition_uri": "https://w3id.org/biolink/vocab/IngestMetadataFile",
-      "description": "Information about a particular ingest perfomred to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.\n",
+      "description": "Information about a particular ingest performed to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.\n",
       "from_schema": "https://w3id.org/biolink/kgx/ingest-metadata-schema",
       "slots": [
         "ingestMetadataFile__file_name",
         "ingestMetadataFile__file_created_by",
         "ingestMetadataFile__file_creation_date",
         "ingestMetadataFile__ingest_code_url",
+        "ingestMetadataFile__ingest_code_version",
         "ingestMetadataFile__source_infores_id",
         "ingestMetadataFile__source_data_version",
         "ingestMetadataFile__source_access_date",
@@ -714,6 +730,13 @@
           "@type": "SlotDefinition"
         },
         {
+          "name": "ingest_code_version",
+          "description": "The version of the ingest code executed to perform the ingest.",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
           "name": "source_infores_id",
           "description": "Infores identifier of the ingested source.",
           "range": "uriorcurie",
@@ -722,8 +745,9 @@
         },
         {
           "name": "source_data_version",
-          "description": "Version of the source data ingested (using source's own conventions).",
+          "description": "Version of the source data ingested - using source's own conventions, or make one up  (e.g. use the date) if not provided by source.",
           "range": "string",
+          "required": true,
           "@type": "SlotDefinition"
         },
         {
@@ -805,7 +829,7 @@
         },
         {
           "name": "node_normalizer_url",
-          "description": "URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"",
+          "description": "URL(s) pointing to source code and/or information about the node normalization tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"",
           "range": "string",
           "@type": "SlotDefinition"
         },
@@ -848,9 +872,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "ingest_metadata.yaml",
-  "source_file_date": "2025-09-02T18:46:35",
-  "source_file_size": 5540,
-  "generation_date": "2025-09-02T18:46:58",
+  "source_file_date": "2025-09-22T10:57:42",
+  "source_file_size": 5807,
+  "generation_date": "2025-09-22T11:00:29",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/ingest_metadata.context.jsonld",

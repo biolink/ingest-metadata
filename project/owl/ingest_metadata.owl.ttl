@@ -11,198 +11,207 @@ biolink:IngestMetadataFile a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "IngestMetadataFile" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:source_access_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Date ;
-            owl:onProperty biolink:source_access_date ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:source_data_version ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty biolink:total_edge_count ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:source_infores_id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:target_model ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:ingest_code_url ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:target_creation_date ],
+            owl:onProperty biolink:source_access_urls ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:file_name ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:source_data_version ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty biolink:file_creation_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty biolink:source_infores_id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:node_normalizer_version ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:target_model_url ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:target_model_url ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:edge_predicates ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Integer ;
-            owl:onProperty biolink:total_edge_count ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:source_access_urls ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:target_model ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:edge_predicates ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:file_created_by ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:target_creation_date ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:node_normalizer_url ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:target_name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Date ;
-            owl:onProperty biolink:file_creation_date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:source_file_names ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:node_normalizer ],
+            owl:onProperty biolink:source_access_date ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Integer ;
             owl:onProperty biolink:total_node_count ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:total_edge_count ],
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:ingest_code_url ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty biolink:ingest_code_url ],
+            owl:onProperty biolink:target_model ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:node_normalizer_url ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:edge_predicates ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:target_model ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty biolink:source_infores_id ],
+            owl:onProperty biolink:source_access_date ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty biolink:target_format ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty biolink:node_categories ],
+            owl:onProperty biolink:file_creation_date ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty biolink:ingest_code_url ],
+            owl:onProperty biolink:target_name ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:file_name ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:source_data_version ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty biolink:orphan_node_count ],
         [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:source_file_names ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:total_node_count ],
+        [ a owl:Restriction ;
             owl:allValuesFrom linkml:Date ;
             owl:onProperty biolink:target_creation_date ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty biolink:target_format ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:target_name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:target_name ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:target_format ],
+            owl:onProperty biolink:file_name ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty biolink:file_creation_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:target_data_model_version ],
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:source_file_names ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty biolink:total_node_count ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:source_access_date ],
+            owl:onProperty biolink:target_creation_date ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty biolink:source_access_urls ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty biolink:node_normalizer ],
+            owl:onProperty biolink:total_edge_count ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:node_normalizer_version ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:target_name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:file_creation_date ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:node_normalizer_version ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:ingest_code_url ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:ingest_code_version ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Date ;
+            owl:onProperty biolink:source_access_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty biolink:orphan_node_count ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty biolink:total_edge_count ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:target_model ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:target_model_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:node_normalizer_url ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty biolink:node_categories ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:file_name ],
+            owl:onProperty biolink:file_created_by ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:source_infores_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:target_format ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:source_file_names ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Integer ;
-            owl:onProperty biolink:orphan_node_count ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:node_normalizer_url ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:node_normalizer_version ],
+            owl:onProperty biolink:target_name ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty biolink:source_data_version ],
+            owl:onProperty biolink:node_categories ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:target_data_model_version ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:target_model_url ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty biolink:node_normalizer ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty biolink:orphan_node_count ],
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:source_infores_id ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty biolink:target_data_model_version ],
         [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:node_normalizer ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty biolink:node_normalizer ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:target_data_model_version ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:ingest_code_version ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty biolink:ingest_code_url ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:node_normalizer ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:ingest_code_version ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:source_infores_id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:node_normalizer_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Date ;
+            owl:onProperty biolink:file_creation_date ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:source_data_version ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:file_name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:source_data_version ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty biolink:total_node_count ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty biolink:node_normalizer_version ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:orphan_node_count ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty biolink:total_edge_count ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:target_format ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty biolink:file_created_by ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty biolink:node_normalizer_version ] ;
-    skos:definition """Information about a particular ingest perfomred to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.
+            owl:onProperty biolink:target_model_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:target_data_model_version ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty biolink:target_model_url ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty biolink:target_creation_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty biolink:edge_predicates ] ;
+    skos:definition """Information about a particular ingest performed to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.
 """ ;
     skos:inScheme <https://w3id.org/biolink/kgx/ingest-metadata-schema> .
 
@@ -254,6 +263,12 @@ biolink:ingest_code_url a owl:ObjectProperty,
     skos:definition "URL of the specific official release or tagged branch of the ingest code executed to perform the ingest." ;
     skos:inScheme <https://w3id.org/biolink/kgx/ingest-metadata-schema> .
 
+biolink:ingest_code_version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ingest_code_version" ;
+    skos:definition "The version of the ingest code executed to perform the ingest." ;
+    skos:inScheme <https://w3id.org/biolink/kgx/ingest-metadata-schema> .
+
 biolink:node_normalizer a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "node_normalizer" ;
@@ -263,7 +278,7 @@ biolink:node_normalizer a owl:ObjectProperty,
 biolink:node_normalizer_url a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "node_normalizer_url" ;
-    skos:definition "URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"" ;
+    skos:definition "URL(s) pointing to source code and/or information about the node normalization tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"" ;
     skos:inScheme <https://w3id.org/biolink/kgx/ingest-metadata-schema> .
 
 biolink:node_normalizer_version a owl:ObjectProperty,
@@ -287,7 +302,7 @@ biolink:source_access_date a owl:ObjectProperty,
 biolink:source_data_version a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "source_data_version" ;
-    skos:definition "Version of the source data ingested (using source's own conventions)." ;
+    skos:definition "Version of the source data ingested - using source's own conventions, or make one up  (e.g. use the date) if not provided by source." ;
     skos:inScheme <https://w3id.org/biolink/kgx/ingest-metadata-schema> .
 
 biolink:source_infores_id a owl:ObjectProperty,

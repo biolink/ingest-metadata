@@ -49,8 +49,9 @@ linkml:Sparqlpath xsd:string
           <file_created_by> @linkml:String * ;
           <file_creation_date> @linkml:Date ;
           <ingest_code_url> @linkml:Uriorcurie ;
+          <ingest_code_version> @linkml:String ;
           <source_infores_id> @linkml:Uriorcurie ;
-          <source_data_version> @linkml:String ? ;
+          <source_data_version> @linkml:String ;
           <source_access_date> @linkml:Date ;
           <source_access_urls> @linkml:Uriorcurie * ;
           <source_file_names> @linkml:String * ;

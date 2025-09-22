@@ -2,7 +2,7 @@
     "$defs": {
         "IngestMetadataFile": {
             "additionalProperties": false,
-            "description": "Information about a particular ingest perfomred to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.",
+            "description": "Information about a particular ingest performed to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.",
             "properties": {
                 "edge_predicates": {
                     "description": "List of all Biolink predicates used in the graph.",
@@ -37,6 +37,10 @@
                     "description": "URL of the specific official release or tagged branch of the ingest code executed to perform the ingest.",
                     "type": "string"
                 },
+                "ingest_code_version": {
+                    "description": "The version of the ingest code executed to perform the ingest.",
+                    "type": "string"
+                },
                 "node_categories": {
                     "description": "List of all Biolink categories used for nodes in the graph.",
                     "items": {
@@ -55,7 +59,7 @@
                     ]
                 },
                 "node_normalizer_url": {
-                    "description": "URL(s) pointing to source code and/or information about the node normaliztion tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"",
+                    "description": "URL(s) pointing to source code and/or information about the node normalization tool used. e.g.  \"https://github.com/TranslatorSRI/NodeNormalization\"",
                     "type": [
                         "string",
                         "null"
@@ -91,11 +95,8 @@
                     ]
                 },
                 "source_data_version": {
-                    "description": "Version of the source data ingested (using source's own conventions).",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "description": "Version of the source data ingested - using source's own conventions, or make one up  (e.g. use the date) if not provided by source.",
+                    "type": "string"
                 },
                 "source_file_names": {
                     "description": "File names from which content used to produce the output KGX graph was retrieved.",
@@ -158,7 +159,9 @@
                 "file_name",
                 "file_creation_date",
                 "ingest_code_url",
+                "ingest_code_version",
                 "source_infores_id",
+                "source_data_version",
                 "source_access_date",
                 "target_name",
                 "target_creation_date",
