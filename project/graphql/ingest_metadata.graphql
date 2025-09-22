@@ -6,8 +6,9 @@ type IngestMetadataFile
     fileCreatedBy: [String]
     fileCreationDate: Date!
     ingestCodeUrl: Uriorcurie!
+    ingestCodeVersion: String!
     sourceInforesId: Uriorcurie!
-    sourceDataVersion: String
+    sourceDataVersion: String!
     sourceAccessDate: Date!
     sourceAccessUrls: [Uriorcurie]
     sourceFileNames: [String]

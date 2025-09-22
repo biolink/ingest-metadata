@@ -1,0 +1,12 @@
+extends: default
+
+rules:
+  line-length:
+    max: 80
+  comments-indentation: enable
+  trailing-spaces: enable
+  empty-lines:
+    max-start: 0
+    max-end: 1
+  document-start: disable
+  truthy: disable

@@ -2,7 +2,7 @@
  package
 // metamodel_version: 1.7.0
 // version: 0.1.0
-// Information about a particular ingest perfomred to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.
+// Information about a particular ingest performed to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.
 // 
 message IngestMetadataFile
  {
@@ -10,6 +10,7 @@ message IngestMetadataFile
  repeated  string fileCreatedBy = 0
   date fileCreationDate = 0
   uriorcurie ingestCodeUrl = 0
+  string ingestCodeVersion = 0
   uriorcurie sourceInforesId = 0
   string sourceDataVersion = 0
   date sourceAccessDate = 0
