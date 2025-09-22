@@ -26,7 +26,7 @@ imports:
 
 classes:
   IngestMetadataFile:
-    description: >
+    description: >-
       Information about a particular ingest performed to produce a KGX graph,
       describing source data, ingest process, and details of the resulting
       KGX graph.
@@ -94,7 +94,6 @@ classes:
           was retrieved.
         range: string
         multivalued: true
-
       # Information about the target KGX graph produced by this execution
       # of the source ingest task
       target_name:
@@ -106,6 +105,14 @@ classes:
       target_creation_date:
         description: Date the target data set/graph was created.
         range: date
+        required: true
+      target_data_url:
+        description: URL where the dataset/graph can be retrieved
+        range: uriorcurie
+        required: true
+      target_data_version:
+        description: version of the target dataset/graph.
+        range: string
         required: true
       target_format:
         description: >
@@ -146,7 +153,6 @@ classes:
           normalization tool used. e.g.
           "https://github.com/TranslatorSRI/NodeNormalization"
         range: string
-
       # Metrics about the content of the specific KGX graph produced by
       # the ingest task
       total_edge_count:
