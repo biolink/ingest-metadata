@@ -872,9 +872,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "ingest_metadata.yaml",
-  "source_file_date": "2025-09-22T13:47:27",
+  "source_file_date": "2025-09-22T20:51:37",
   "source_file_size": 6207,
-  "generation_date": "2025-09-22T13:48:42",
+  "generation_date": "2025-09-22T20:51:57",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/ingest_metadata.context.jsonld",

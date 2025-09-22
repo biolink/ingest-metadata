@@ -63,13 +63,13 @@ CREATE TABLE "IngestMetadataFile_file_created_by" (
 	file_created_by TEXT,
 	PRIMARY KEY ("IngestMetadataFile_id", file_created_by),
 	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
-);CREATE INDEX "ix_IngestMetadataFile_file_created_by_IngestMetadataFile_id" ON "IngestMetadataFile_file_created_by" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_file_created_by_file_created_by" ON "IngestMetadataFile_file_created_by" (file_created_by);
+);CREATE INDEX "ix_IngestMetadataFile_file_created_by_file_created_by" ON "IngestMetadataFile_file_created_by" (file_created_by);CREATE INDEX "ix_IngestMetadataFile_file_created_by_IngestMetadataFile_id" ON "IngestMetadataFile_file_created_by" ("IngestMetadataFile_id");
 CREATE TABLE "IngestMetadataFile_source_access_urls" (
 	"IngestMetadataFile_id" INTEGER,
 	source_access_urls TEXT,
 	PRIMARY KEY ("IngestMetadataFile_id", source_access_urls),
 	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
-);CREATE INDEX "ix_IngestMetadataFile_source_access_urls_IngestMetadataFile_id" ON "IngestMetadataFile_source_access_urls" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_source_access_urls_source_access_urls" ON "IngestMetadataFile_source_access_urls" (source_access_urls);
+);CREATE INDEX "ix_IngestMetadataFile_source_access_urls_source_access_urls" ON "IngestMetadataFile_source_access_urls" (source_access_urls);CREATE INDEX "ix_IngestMetadataFile_source_access_urls_IngestMetadataFile_id" ON "IngestMetadataFile_source_access_urls" ("IngestMetadataFile_id");
 CREATE TABLE "IngestMetadataFile_source_file_names" (
 	"IngestMetadataFile_id" INTEGER,
 	source_file_names TEXT,
@@ -87,4 +87,4 @@ CREATE TABLE "IngestMetadataFile_edge_predicates" (
 	edge_predicates TEXT,
 	PRIMARY KEY ("IngestMetadataFile_id", edge_predicates),
 	FOREIGN KEY("IngestMetadataFile_id") REFERENCES "IngestMetadataFile" (id)
-);CREATE INDEX "ix_IngestMetadataFile_edge_predicates_IngestMetadataFile_id" ON "IngestMetadataFile_edge_predicates" ("IngestMetadataFile_id");CREATE INDEX "ix_IngestMetadataFile_edge_predicates_edge_predicates" ON "IngestMetadataFile_edge_predicates" (edge_predicates);
+);CREATE INDEX "ix_IngestMetadataFile_edge_predicates_edge_predicates" ON "IngestMetadataFile_edge_predicates" (edge_predicates);CREATE INDEX "ix_IngestMetadataFile_edge_predicates_IngestMetadataFile_id" ON "IngestMetadataFile_edge_predicates" ("IngestMetadataFile_id");
