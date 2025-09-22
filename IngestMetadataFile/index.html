@@ -216,7 +216,6 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-ingestmetadatafile">Class: IngestMetadataFile</h1>
 <p><em>Information about a particular ingest performed to produce a KGX graph, describing source data, ingest process, and details of the resulting KGX graph.</em></p>
-<p>__</p>
 <p>URI: <a href="https://w3id.org/biolink/vocab/IngestMetadataFile">biolink:IngestMetadataFile</a></p>
 <div class="mermaid"> classDiagram
     class IngestMetadataFile
@@ -256,6 +255,10 @@
       IngestMetadataFile : target_creation_date
 
       IngestMetadataFile : target_data_model_version
+
+      IngestMetadataFile : target_data_url
+
+      IngestMetadataFile : target_data_version
 
       IngestMetadataFile : target_format
 
@@ -353,6 +356,18 @@
 <td><a href="../target_creation_date/">target_creation_date</a></td>
 <td>1 <br/> <a href="../Date/">Date</a></td>
 <td>Date the target data set/graph was created</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../target_data_url/">target_data_url</a></td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>URL where the dataset/graph can be retrieved</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../target_data_version/">target_data_version</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>version of the target dataset/graph</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -458,10 +473,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: IngestMetadataFile
-description: 'Information about a particular ingest performed to produce a KGX graph,
+description: Information about a particular ingest performed to produce a KGX graph,
   describing source data, ingest process, and details of the resulting KGX graph.
-
-  '
 from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
 attributes:
   file_name:
@@ -598,6 +611,24 @@ attributes:
     - IngestMetadataFile
     range: date
     required: true
+  target_data_url:
+    name: target_data_url
+    description: URL where the dataset/graph can be retrieved
+    from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
+    rank: 1000
+    domain_of:
+    - IngestMetadataFile
+    range: uriorcurie
+    required: true
+  target_data_version:
+    name: target_data_version
+    description: version of the target dataset/graph.
+    from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
+    rank: 1000
+    domain_of:
+    - IngestMetadataFile
+    range: string
+    required: true
   target_format:
     name: target_format
     description: 'Format in which the KGX graph is serialized (e.g., "KGX-jsonlines").
@@ -727,10 +758,8 @@ attributes:
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: IngestMetadataFile
-description: 'Information about a particular ingest performed to produce a KGX graph,
+description: Information about a particular ingest performed to produce a KGX graph,
   describing source data, ingest process, and details of the resulting KGX graph.
-
-  '
 from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
 attributes:
   file_name:
@@ -890,6 +919,28 @@ attributes:
     domain_of:
     - IngestMetadataFile
     range: date
+    required: true
+  target_data_url:
+    name: target_data_url
+    description: URL where the dataset/graph can be retrieved
+    from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
+    rank: 1000
+    alias: target_data_url
+    owner: IngestMetadataFile
+    domain_of:
+    - IngestMetadataFile
+    range: uriorcurie
+    required: true
+  target_data_version:
+    name: target_data_version
+    description: version of the target dataset/graph.
+    from_schema: https://w3id.org/biolink/kgx/ingest-metadata-schema
+    rank: 1000
+    alias: target_data_version
+    owner: IngestMetadataFile
+    domain_of:
+    - IngestMetadataFile
+    range: string
     required: true
   target_format:
     name: target_format
