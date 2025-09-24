@@ -84,7 +84,7 @@ def main(infores, output, template):
         output = f"{source_name}_metadata.yaml"
 
     # Sanity check: ensure the Ingest Metadata file directory exists
-    makedirs(path.dirname(METADATA_FILE_DIRECTORY), exist_ok=True)
+    makedirs(path.abspath(METADATA_FILE_DIRECTORY), exist_ok=True)
     output_path = f"{METADATA_FILE_DIRECTORY}{sep}{output}"
     
     # Check if template exists
