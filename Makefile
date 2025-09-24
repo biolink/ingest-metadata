@@ -22,7 +22,7 @@ SRC = src
 DEST = project
 PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
 DOCDIR = docs
-DOCTEMPLATES = $(SRC)/docs/templates
+DOCTEMPLATES = $(SRC)/docs/doc-templates
 EXAMPLEDIR = examples
 
 # Use += to append variables from the variables file
@@ -178,7 +178,7 @@ $(DOCDIR):
 
 gendoc: $(DOCDIR)
 	cp -rf $(SRC)/docs/files/* $(DOCDIR) ; \
-	$(RUN) gen-doc ${GEN_DOC_ARGS} -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
+	$(RUN) gen-doc ${GEN_DOC_ARGS} -d $(DOCDIR) --template-directory $(DOCTEMPLATES) $(SOURCE_SCHEMA_PATH)
 
 testdoc: gendoc serve
 
@@ -194,7 +194,7 @@ git-add: .cruft.json
 git-commit:
 	git commit -m 'chore: make setup was run' -a
 git-status:
-	git status
+	git statusfrom os import makedirs, path, sep
 
 # only necessary if setting up via cookiecutter
 .cruft.json:
