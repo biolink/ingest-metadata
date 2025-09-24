@@ -37,6 +37,8 @@ pip install uv
 
 ### Getting Started
 
+Note: either 'make' or 'just' can be used to run the commands below.
+
 1. Clone the repository:
 ```bash
 git clone https://github.com/biolink/ingest-metadata.git
@@ -51,6 +53,22 @@ uv sync
 3. Run tests:
 ```bash
 make test  # or use the  `just test` command
+```
+
+4. Creating a New Ingest Metadata file
+
+```bash
+# Create a new Ingest Metadata file from the template
+make new-metadata INFORES=infores:example
+
+# This creates src/docs/metadata/mydatasource_metadata.yaml
+# Edit the file to fill in your specific information
+```
+
+or using the equivalent **`just`** command (note the reversed order of arguments):
+
+```bash
+just INFORES=infores:example new-metadata
 ```
 
 ### Development Commands

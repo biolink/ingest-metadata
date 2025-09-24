@@ -1,0 +1,37 @@
+# IngestMetadataFile schema based content.
+# See schema at src/ingest_metadata/schema/ingest_metadata.yaml
+file_name:  # (required, range = string)
+file_created_by:  # (optional, multivalued, range = string)
+file_creation_date:  # (required, range = date)
+
+# Information about the code used to execute the ingest task
+# (e.g., a specific version/branch of code used)
+ingest_code_url:  # (required, range = URIorCURIE)
+ingest_code_version:  # (required, range = string)
+
+# Information about when/how the source was accessed in performing the ingest
+source_infores_id:   # (required, range = URIorCURIE)
+source_data_version:   # (required, range = string)
+source_access_date:   # (required, range = date)
+source_access_urls:   # (optional, multivalued, range = URIorCURIE)
+source_file_names:   # (optional, multivalued, range = string)
+
+# Information about the target KGX graph produced by this execution of the source ingest task
+target_name:  # (required, range = string)
+target_creation_date:  # (required, range = date)
+target_data_url:  # (required, range = URIorCURIE)
+target_data_version:  # (required, range = string)
+target_format:  # (required, range = string)
+target_model:  # (required, range = string) # This will be Biolink Model for all Translator graphs
+target_model_url:  # (optional, range = string)
+target_data_model_version:  # (required, range = string) # e.g. "4.2.6-rc5"
+node_normalizer:  # (optional, range = string)
+node_normalizer_version:  # (optional, range = string)
+node_normalizer_url:  # (optional, range = string)  # e.g. "https://github.com/TranslatorSRI/NodeNormalization"
+
+# Metrics about the content of the specific KGX graph produced by the ingest task
+total_edge_count:  # (optional, range = integer)
+total_node_count:  # (optional, range = integer)
+orphan_node_count:  # (optional, range = integer)
+node_categories:  # (optional, multivalued, range = string)
+edge_predicates:  # (optional, multivalued, range = string)

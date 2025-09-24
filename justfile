@@ -44,6 +44,7 @@ src := "src"
 dest := "project"
 pymodel := src / schema_name / "datamodel"
 docdir := "docs"
+doctemplates := "{{src}}/docs/doc-templates"
 exampledir := "examples"
 
 # Main project manager is 'uv'
@@ -150,7 +151,7 @@ lint:
 # Generate documentation
 _gendoc: _ensure_docdir
     cp -r {{src}}/docs/files/* {{docdir}}
-    {{run}} gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
+    {{run}} gen-doc {{gen_doc_args}} -d {{docdir}} --template-directory {{doctemplates}} {{source_schema_path}}
 
 # Build docs and run test server
 testdoc: _gendoc _serve
